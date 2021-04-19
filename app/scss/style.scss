@@ -10,6 +10,16 @@
     padding: 0 15px;
 }
 
+.container-big{
+    max-width: 1660px;  
+    margin: 0 auto;
+}
+
+.container-main{
+    max-width: 1168px;
+    margin: 0 auto;
+}
+
 /* ----- HEADER ----- */
 .header{
     min-height: 1082px;
@@ -200,6 +210,120 @@
 }
 
 
-/* ----- HEADER ----- */
+/* ----- ABOUT ----- */
+.about{
+    min-height: 1065px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    // margin-top: -121px;
+
+    &__inner{
+        display: flex;
+    }
+}
+
+// Sidebar Text
+.sidebar__text{
+    position: absolute;
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    line-height: 121px;
+    text-align: right;
+    font-weight: 900;
+    font-size: 121px;
+    text-transform: uppercase;
+    width: 958px;
+    bottom: -13%;
+    color: #F7F7F7;
+}
+
+// Content
+.about__left{
+    padding-right: 232px;
+    padding-left: 45px;
+
+    &-title{
+        margin: 0;
+        font-weight: 900;
+        font-size: 26px;
+        line-height: 38px;
+        text-transform: uppercase;
+        color: #454545;
+        padding-bottom: 45px;
+
+        span{
+            color: $blue;
+        }
+    }
+}
+
+.about__right{
+    padding-top: 254px;
+}
+
+.about__item{
+    padding-bottom: 25px;
+
+    &-block{
+        background-color: #fff;
+        box-shadow: 15px 15px 45px 3px rgba(#000000, .08);
+        display: inline-block;
+        min-width: 508px;
+        border-radius: 23px;
+        position: relative;
+    }
+
+    &-title{
+        color: #535353;
+        font-weight: 800;
+        font-size: 19px;
+        line-height: 24px;
+        padding: 36px 43px 46px 43px;
+    }
+}
+
+
+.item__btn-shadow{
+    position: absolute;
+    display: inline-block;
+    width: 51px;
+    height: 51px;
+    right: -10px;
+    top: 27px;
+    border-radius: 100%;
+    background: #fff;
+    box-shadow:inset 0px 0px 30px 10px rgba(#000000, .05);
+   
+}
+
+.item__btn-main{
+    position: absolute;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    right: 5px;
+    top: 5px;
+    border-radius: 100%;
+    background: linear-gradient(100deg,#66A362 20%, #9FCD81 70%);
+    box-shadow: 0px 10px 22px 4px rgba(#9FCD81, .5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    div{
+        position: absolute;
+        height: 2px;
+        background: #fff;
+        width: 11px;
+        border-radius: 10%;
+
+        &:nth-child(2) {
+            transform: rotate(90deg);
+        }
+    }
+}
 
 @import "media";
