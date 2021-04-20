@@ -28,6 +28,7 @@
     background-position: top center;
 }
 
+
 // Top + Menu
 .header__top{
     padding-top: 31px;
@@ -48,10 +49,13 @@
     padding-top: 15px;
 }
 
-.menu__list{
-    display: flex;
+.menu__link{
     font-size: 17px;
     font-weight: 800;
+}
+
+.menu__list{
+    display: flex;
 
     li + li{
         padding-left: 46px;
@@ -65,6 +69,7 @@
 
 .phone{
     padding-right: 62px;
+    font-weight: 800;
 
     &__link{
         text-decoration: underline;
@@ -116,7 +121,7 @@
         font-style: normal;
         font-weight: 900;
         font-size: 72px;
-        line-height: 72px;
+        line-height: 100px;
         margin: 0;
         text-transform: uppercase;
         background: linear-gradient(60deg, #64A161 30%, #B1DA8B 90%);
@@ -131,7 +136,7 @@
         line-height: 37px;
         color: #454545;
         text-transform: uppercase;
-        padding: 20px 0 24px 42px;
+        padding: 20px 0 24px 36px;
     }
 
     &-info{
@@ -139,7 +144,7 @@
         font-size: 19px;
         line-height: 26px;
         color: #535353;
-        padding: 0 0 50px 42px;
+        padding: 0 0 50px 36px;
 
         span{
             font-style: italic;
@@ -149,7 +154,7 @@
 }
 
 .left__bottom{
-    padding-left: 42px;
+    padding-left: 36px;
     min-width: 600px;
     position: relative;
 
@@ -212,12 +217,12 @@
 
 /* ----- ABOUT ----- */
 .about{
-    min-height: 1065px;
+    position: relative;
+    min-height: 1212px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
-    position: relative;
-    // margin-top: -121px;
+    margin-top: -95px;
 
     &__inner{
         display: flex;
@@ -235,14 +240,16 @@
     font-size: 121px;
     text-transform: uppercase;
     width: 958px;
-    bottom: -13%;
+    bottom: 1%;
+    left: 165px;
     color: #F7F7F7;
 }
 
+
 // Content
 .about__left{
-    padding-right: 232px;
-    padding-left: 45px;
+    margin-right: 232px;
+    padding-left: 44px;
 
     &-title{
         margin: 0;
@@ -263,17 +270,54 @@
     padding-top: 254px;
 }
 
+.about__items {
+    min-width: 508px;
+}
+
 .about__item{
-    padding-bottom: 25px;
+    // padding-bottom: 25px;
+    position: relative;
+    &:nth-child(2) {
+        top: 75px;
+    }
+    &:nth-child(3) {
+        top: 150px;
+    }
+    
+    &-info{
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 26px;
+        background-color: #fff;
+        box-shadow: 0px 15px 45px 3px rgba(#000000, .08);
+        padding: 101px 60px 46px 44px;
+        border-radius: 23px;
+        overflow: hidden;
+        display: none;
+        opacity: 0;
+        transition: 5s all;
+    }
+
+    &-text1{
+        width: 404px;
+        margin: 0;
+        padding-bottom: 36px;
+    }
+
+    &-text2{
+        width: 404px;
+        margin: 0;
+    }
 
     &-block{
-        background-color: #fff;
+        // background-color: #fff;
         box-shadow: 15px 15px 45px 3px rgba(#000000, .08);
         display: inline-block;
-        min-width: 508px;
         border-radius: 23px;
-        position: relative;
-    }
+        min-width: 508px;
+        position: absolute;
+        
+    } 
 
     &-title{
         color: #535353;
@@ -282,11 +326,13 @@
         line-height: 24px;
         padding: 36px 43px 46px 43px;
     }
+
 }
 
 
+
 .item__btn-shadow{
-    position: absolute;
+    // position: absolute;
     display: inline-block;
     width: 51px;
     height: 51px;
@@ -319,9 +365,24 @@
         background: #fff;
         width: 11px;
         border-radius: 10%;
+        transition: .3s all;
 
         &:nth-child(2) {
             transform: rotate(90deg);
+        }
+    }
+}
+
+
+.about__item-btn.active .about__item-info {
+    display: block;
+    opacity: 1;
+}
+
+.about__item-btn.active .item__btn-main{
+    div {
+        &:nth-child(2) {
+            transform: rotate(180deg);
         }
     }
 }
