@@ -54,3 +54,81 @@ font-weight:
 
 style="background-image: url(./img/header-bg.jpg);"
 style="background-image: url(./img/about-bg.jpg);"
+
+<div class="about__items">
+                          
+                        <div class="about__item">
+                            
+                          <div class="about__item-btn">
+                            <div class="item__btn-shadow">
+                              <div class="about__item-block">
+                                <div class="about__item-title">В каком формате проходит обучение?</div>
+                              </div>
+                              <div class="item__btn-main" id="a2">
+                                <div></div>
+                                <div></div>
+                              </div>
+  
+                            </div>
+                            <div class="about__item-info">
+                              <p class="about__item-text1">
+                                Дистанционное обучение стало популярным с появлением интернета, открыв новые возможности развития для жителей удаленных населенных пунктов и деловых людей с плотным рабочим графиком. 
+                              </p>
+                              <p class="about__item-text2">
+                                Во время дистанционного обучения студент занимается самостоятельно по разработанной программе, просматривает записи вебинаров, решает задачи, консультируется с преподавателем в онлайн-чате и периодически отдает ему на проверку свои работы.
+                              </p>
+                            </div>
+                        
+                      </div>
+  
+                    
+                  </div>
+      
+                        <div class="about__item">
+                            
+                                <div class="about__item-btn">
+                                  <div class="item__btn-shadow">
+                                    <div class="about__item-block">
+                                      <div class="about__item-title">В каком формате проходит обучение?</div>
+                                    </div>
+                                    <div class="item__btn-main" id="a2">
+                                      <div></div>
+                                      <div></div>
+                                    </div>
+      
+                                  </div>
+                        
+                              
+                            	</div>
+      
+                          
+                        </div>
+      
+                        <div class="about__item">
+                            
+                          <div class="about__item-btn">
+                            <div class="item__btn-shadow">
+                              <div class="about__item-block">
+                                <div class="about__item-title">В каком формате проходит обучение?</div>
+                              </div>
+                              <div class="item__btn-main" id="a2">
+                                <div></div>
+                                <div></div>
+                              </div>
+  
+                            </div>
+                            <div class="about__item-info">
+                              <p class="about__item-text1">
+                                Дистанционное обучение стало популярным с появлением интернета, открыв новые возможности развития для жителей удаленных населенных пунктов и деловых людей с плотным рабочим графиком. 
+                              </p>
+                              <p class="about__item-text2">
+                                Во время дистанционного обучения студент занимается самостоятельно по разработанной программе, просматривает записи вебинаров, решает задачи, консультируется с преподавателем в онлайн-чате и периодически отдает ему на проверку свои работы.
+                              </p>
+                            </div>
+                        
+                      </div>
+  
+                    
+                  </div>
+      
+                      </div>

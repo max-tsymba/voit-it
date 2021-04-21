@@ -1,19 +1,34 @@
+window.addEventListener('DOMContentLoaded', ()=>{
+
+        accrodionMenu();
+});
+
 $(function(){
-
-
-        
-        $('.about__item').on('click', '.about__item-btn', function(){
-
-
-                if($(this).hasClass('active')) {
-                    $(this).removeClass('active');
-                } else {
-                    $('.about__item-btn').removeClass('active');
-                    // $('.about__item-info').addClass('active');
-                    $(this).addClass('active');
-                }
-
-            
-        })  
   
 });
+
+// Accordion About Menu
+function accrodionMenu() {
+
+        let items = document.querySelectorAll('.accordion__item');
+
+        for (let i=0; i<items.length; i++) {
+                items[i].addEventListener('click', ()=>{
+
+                        if(items[i].classList.contains('active')) {
+                                items[i].classList.remove('active');
+                        } else {
+                                let activeNode = null;
+                                try{
+                                        activeNode = document.querySelector('.about__accordion .active');
+                                } catch(msg) {}
+
+                                items[i].classList.add('active');
+
+                                if(activeNode) {
+                                        activeNode.classList.remove('active');
+                                }
+                        }
+                })
+        }
+}
