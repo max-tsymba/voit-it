@@ -720,4 +720,186 @@
     color: #F6F6F6;
 }
 
+/* ----- PRICE SECTION ----- */
+.price{
+    position: relative;
+    min-height: 958px;
+}
+
+.price__inner{
+    padding-left: 40px;
+}
+
+.price__cards{
+    display: flex;
+    justify-content: space-between;
+}
+
+// Title
+.price__title{
+    position: relative;
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 37px;
+    text-transform: uppercase;
+    color: #454545;
+    padding-bottom: 77px;
+    span {
+        color: #2C7EB4;
+    }
+}
+
+// Card
+
+.price__rect {
+    position: absolute;
+    left: 0;
+    margin-left: -1px;
+    opacity: .13;
+    top: 0;
+}
+
+.price__item{
+    position: relative; 
+}
+
+.price__logo{
+    position: absolute;
+    top: -4%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 20;
+}
+
+.price__block{
+    background: linear-gradient(192.52deg, #203269 19.71%, #2275AB 79.07%);
+    border-radius: 23px;
+    display: inline-block;
+    position: relative;
+    min-width: 353px;
+    padding: 153px 0px 26px 0px;
+    text-align: center;
+
+    &-sup{
+        font-weight: 800;
+        font-size: 12px;
+        line-height: 14px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.68);
+        padding-bottom: 8px;
+    }
+
+    &-title{
+        z-index: 200;
+        font-weight: 800;
+        font-size: 31px;
+        color: #fff;
+        padding-bottom: 12px;
+    }
+
+    &-cost{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 200;
+        font-size: 28px;
+        letter-spacing: -0.03em;
+        color: #fff;
+        padding-bottom: 46px;
+    }
+
+    &-item{
+        position: relative;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 16px;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 46px;
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+            &::before{
+                content: '';
+                position: absolute;
+                height: 1px;
+                width: 100%;
+                background-color: #fff;
+                opacity: 35%;
+                bottom: 22px;
+            }
+        }
+
+
+        span{
+            max-width: 195px;
+        }
+    }
+
+    &-btn{
+        position: absolute;
+        bottom: -5%;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    &-btn_book{
+        border: none;
+        padding: 24px 88px;
+        cursor: pointer;
+    }
+
+    &-list{
+        margin: 0 auto;
+        max-width: 230px;
+        text-align: left;
+    }
+}
+
+.first-list .price__block-item{
+    &:nth-child(3),
+    &:nth-child(4) {
+        opacity: 0.3;
+        &::before{
+            opacity: 1;
+        }
+    }
+}
+
+.second-list .price__block-item{
+    &:nth-child(4) {
+        opacity: 0.3;
+    }
+}
+
+.price__item-big{
+    transform: scale(1.1);
+    border-radius: 23px;
+    box-shadow: 0px 43px 100px -18px #2274AB;
+}
+
+.price__bookmark{
+    position: absolute;
+    top: -5%;
+    z-index: 20;
+
+    span{
+        position: absolute;
+        bottom: 52%;
+        right: 15%;
+        font-weight: 800;
+        font-size: 10px;
+        color: #9FCD81;
+        text-transform: uppercase;
+        transform: rotate(90deg);
+    }
+}
+
+.price__side{
+    left: 274px;
+    bottom: 8%;
+    text-align: center;
+    color: #fff;
+}
+
 @import "media";
