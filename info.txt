@@ -132,3 +132,37 @@ style="background-image: url(./img/about-bg.jpg);"
                   </div>
       
                       </div>
+
+
+                <div class="tit">
+                    <div class="test">
+                      <button onclick="test()">Test1</button>
+                      <div class="text">
+                        asdasdhaksjdaskdasdjaksgdkajsgdjkasgdjkasgdkjag
+                      </div>
+                    </div>
+                      
+                    <div class="test">
+                      <button onclick="test()">Test2</button>
+                      <div class="text">
+                        1010101001
+                      </div>
+                    </div>
+                </div>
+
+
+
+.tit{
+    position: relative;
+}
+
+.text{
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+}
+
+.test.active .text{
+    opacity: 1;
+}
