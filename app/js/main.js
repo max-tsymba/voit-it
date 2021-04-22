@@ -5,7 +5,13 @@ window.addEventListener('DOMContentLoaded', ()=>{
 });
 
 $(function(){
-  
+        
+        $('.feedback__slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: false,
+        });
+
 });
 
 // Accordion About Menu

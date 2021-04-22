@@ -166,3 +166,14 @@ style="background-image: url(./img/about-bg.jpg);"
 .test.active .text{
     opacity: 1;
 }
+
+
+ <div class="container-big about-cont">
+
+            <div class="sidebar__text price__side">
+              <div class="sidebar__info">
+                  Тарифы
+              </div>
+            </div>
+
+            <div class="container-main">
