@@ -10,6 +10,8 @@ $(function(){
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 infinite: false,
+                prevArrow: '<button class="slider-btn slider-btn__left"><img src="./img/arr-left.svg" alt=""></button>',
+                nextArrow: '<button class="slider-btn slider-btn__right"><img src="./img/arr-right.svg" alt=""></button>'
         });
 
 });

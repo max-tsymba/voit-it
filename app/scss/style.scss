@@ -909,22 +909,23 @@
 
 /* ----- FEEDBACK SECTION ----- */
 .feedback{
+    min-height: 820px;
     position: relative;
-
-    &__inner{
-        padding-left: 40px;
-    }
 }
 
+.container-feed{
+    max-width: 1500px;
+    margin: 0 auto;
+}
 
 // Title
 .feedback__title{
     font-weight: 900;
     font-size: 26px;
     line-height: 37px;
+    padding-left: 40px;
     text-transform: uppercase;
     color: #444444;
-    padding-bottom: 94px;
 
     span{
         color: #2C7EB4;
@@ -935,11 +936,13 @@
 .feedback__block {
     position: relative;
     background-color: #fff;
-    box-shadow: 0px 26px 55px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
     display: inline-block;
-    padding: 85px 58px 45px 58px;
+    padding: 85px 50px 45px 50px;
     border-radius: 23px;
+    margin: 0 30px;
+    margin-top: 40px;
 
     &-name{
         margin: 0;
@@ -947,7 +950,7 @@
         font-size: 20px;
         color: #535353;
         padding-bottom: 14px;
-        padding-top: 22px;
+        padding-top: 44px;
         max-width: 330px;
     }
 
@@ -958,7 +961,7 @@
         line-height: 25px;
         color: #535353;
         max-width: 330px;
-        min-height: 142px;
+        min-height: 150px;
     }
 
     &-txt{
@@ -975,8 +978,25 @@
         position: absolute;
 
     }
+
+    .feedback__block-social{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
 }
 
+.feed__side{
+    bottom: -1%;
+    left: 1%;
+    font-size: 88px;
+    line-height: 84px;
+    text-align: left;
+
+    &-info{
+        display: inline;
+    }
+}
 
 .feedback__item-img{
     position: absolute;
@@ -984,6 +1004,37 @@
     top: -40px;
     left: 50%;
     transform: translate(-50%)
+}
+
+// Slider
+.feedback__slider{
+    margin: 0 10px;
+    margin-top: 54px;
+}
+
+.slick-slide{
+    height: 500px;
+}
+
+.feedback__slider button {
+    position: absolute;
+    z-index: 2;
+    bottom: -0%;
+    left: 30px;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(100deg,#66A362 20%, #9FCD81 70%);
+}
+
+.feedback__slider .slick-disabled{
+    opacity: .35;
+}
+
+.slider-btn__right{
+    margin-left: 60px;
 }
 
 @import "media";
