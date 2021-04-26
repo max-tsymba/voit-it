@@ -245,7 +245,6 @@
     position: relative;
     min-height: 1294px;
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: top center;
     margin-top: -95px;
 
@@ -304,10 +303,13 @@
     &-top{
         position: relative;
         background-color: #fff;
-        min-width: 508px;
+        display: flex;
+        align-items: center;
+        width: 508px;
         box-shadow: 15px 15px 45px 3px rgba(#000000, .08);
         border-radius: 23px;
         cursor: pointer;
+        height: 106px;
         z-index: 2;
     }
 
@@ -317,7 +319,7 @@
         font-weight: 800;
         font-size: 19px;
         line-height: 24px;
-        padding: 36px 43px 46px 43px;
+        padding-left: 43px;
     }
 
     &-desc{

@@ -1,4 +1,10 @@
-@media (max-width: 769px) {
+@media (min-width: 425px) {
+    .four-section-bg{
+        background-image: url("../img/four-section-bg.png");
+    }
+}
+
+@media (max-width: 768px) {
 
     .menu {
         display: none;
@@ -94,13 +100,13 @@
                 top: 5.5px;
                 height: 1.5px;
                 width: 18px;
-                background-color: #000000;
+                background-color: #000000;  
             }
         }
     }
 }
 
-@media (max-width: 426px) {
+@media (max-width: 425px) {
     .header{
         background-image: url('../img/mobile-head.svg');
     }
@@ -159,6 +165,59 @@
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 425px) {
+    // ABOUT
+    .about{
+        background-image: url('../img/mobile-about.svg');
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        position: relative;
+    }
 
+    .sidebar__text{
+        display: none;
+    }
+
+    .about__left{
+        padding-left: 15px;
+        margin-right: 0;
+    }
+
+    .about__right{
+        img{
+            width: 300px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            bottom: 5%;
+        }
+    }
+
+    .accordion__item{
+        position: relative;
+        z-index: 2;
+        &-top{
+            width: 338px;
+        }
+
+        &-title{
+            max-width: 200px;
+            padding-left: 32px;
+        }
+
+        &-desc{
+            width: 286px;
+            font-size: 14px;
+            line-height: 23px;
+            padding: 0 19px 0 32px;
+            
+        }
+    }
+
+    .accordion__item.active .accordion__item-desc{
+        opacity: 1;
+        max-height: 394px;
+        padding: 101px 19px 46px 32px;
+        transition: all .5s linear;
+    }
 }
