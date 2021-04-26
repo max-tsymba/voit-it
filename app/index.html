@@ -11,8 +11,8 @@
 </head>
 <body>
   
-    <article class="back" id="back">
-      <header class="header" style="background-image: url(./img/header-bg.png);">
+    <article class="fullback" id="fullback">
+      <header class="header">
 
         <div class="container">
   
@@ -21,10 +21,15 @@
               <div class="header__group">
                 <div class="logo">
                   <a class="logo__link" href="#">
-                    <img src="./img/logo.svg" alt="logo">
+                    <picture class="logo__picture">
+                      <source srcset="./img/лого-2.png" media="(max-width: 768px)">
+                      <img src="./img/лого1.png" alt="logo">
+                    </picture>
                   </a>
                 </div>
-      
+                <a href="#" class="menu-hamburger">
+                  <div></div>
+                </a>
                 <nav class="menu">
                     <ul class="menu__list">
                       <li class="menu__item"><a class="menu__link" href="#">Главная</a></li>
@@ -59,7 +64,7 @@
               <div class="left__top">
                 <h1 class="left__top-title">"Войти в IT"</h1>
                 <h2 class="left__top-subtitle">Курсы подготовки к старту профессии в АйТи сфере</h2>
-                <div class="left__top-info">Инвестируй в себя, научись <span>зарабатывать 320 $</span> в день,<br>не выходя из дома.</div>
+                <div class="left__top-info">Инвестируй в себя, научись <span>зарабатывать 320 $</span> в день, не выходя из дома.</div>
               </div>
   
               <div class="left__bottom">
@@ -85,7 +90,7 @@
         </div>
       </header>
       
-      <article class="four-section-bg" style="background-image: url(./img/four-section-bg.png);">
+      <!-- <article class="four-section-bg" style="background-image: url(./img/four-section-bg.png);"> 
         <section class="about">
           <div class="container-big about-cont">
       
@@ -357,7 +362,6 @@
                         </div>
 
                         <div class="programm__menu-block">
-                            <!-- <span>01</span> -->
                             <div class="programm__subblock">
                                 <div class="programm__subblock-sup">
                                   ЗАНЯТИЕ #1
@@ -389,7 +393,7 @@
                         </div>
 
                         <div class="programm__menu-block">
-                            <!-- <span>01</span> -->
+
                             <div class="programm__subblock">
                                 <div class="programm__subblock-sup">
                                   ЗАНЯТИЕ #2
@@ -421,7 +425,7 @@
                         </div>
 
                         <div class="programm__menu-block">
-                            <!-- <span>01</span> -->
+
                             <div class="programm__subblock">
                                 <div class="programm__subblock-sup">
                                   ЗАНЯТИЕ #3
@@ -453,7 +457,7 @@
                         </div>
 
                         <div class="programm__menu-block">
-                            <!-- <span>01</span> -->
+            
                             <div class="programm__subblock">
                                 <div class="programm__subblock-sup">
                                   ЗАНЯТИЕ #4
@@ -485,7 +489,7 @@
                         </div>
 
                         <div class="programm__menu-block">
-                            <!-- <span>01</span> -->
+                        
                             <div class="programm__subblock">
                                 <div class="programm__subblock-sup">
                                   ЗАНЯТИЕ #5
@@ -517,7 +521,7 @@
                         </div>
 
                         <div class="programm__menu-block">
-                            <!-- <span>01</span> -->
+                      
                             <div class="programm__subblock">
                                 <div class="programm__subblock-sup">
                                   ЗАНЯТИЕ #6
@@ -664,10 +668,13 @@
                       <div class="price__item">
 
                         <div class="price__block">
+
                           <div class="price__logo">
                             <img src="./img/pr-logo-3.svg" alt="">
                           </div>
+
                           <img class="price__rect" src="./img/rect-card.png" alt="">
+
                           <div class="price__block-sup">
                             Тариф
                           </div>
@@ -710,9 +717,9 @@
 
           </div>
         </section>
-      </article>
+      </article>   -->
 
-      <article class="two-section-bg" style="background-image: url(./img/two-section-bg.png);">
+      <!-- <article class="two-section-bg" style="background-image: url(./img/two-section-bg.png);">
         <section class="feedback">
           <div class="container-big">
 
@@ -859,7 +866,151 @@
 
           </div>
         </section>
-      </article>
+
+        <footer class="footer">
+          <div class="container-big">
+
+            <div class="sidebar__text footer-text">
+              <div class="sidebar__info">
+                Свяжитесь с нами
+              </div>
+            </div>
+
+            <div class="container-main">
+                <div class="footer__inner">
+
+                  <div class="footer__title">
+                      Контакты
+                  </div>
+
+                  <div class="footer__block">
+                    
+                    <div class="footer__left">
+                        <div class="footer__item">
+
+                          <form class="contact__form">
+
+                              <div class="form__logo">
+                                <img src="./img/form-logo.svg" alt="">
+                              </div>
+
+                              <img class="form__rect" src="./img/form-rect.svg" alt="">
+
+                              <div class="form__title">Напишите нам</div>
+
+                              <div class="form__inputs">
+                                <div class="form__group">
+                                  <input class="form-control" type="text" placeholder="Имя">
+                                </div>
+  
+                                <div class="form__group">
+                                  <input class="form-control" type="text" placeholder="Фамилия">
+                                </div>
+  
+                                <div class="form__group">
+                                  <input class="form-control" type="text" placeholder="Email">
+                                </div>
+  
+                                <div class="form__group message-input">
+                                  <input class="form-control" type="text" placeholder="Сообщение">
+                                </div>
+                              </div>
+
+                              <div class="form__gr-check">
+
+                                <label>
+                                  <input class="form-checkbox" type="checkbox">
+                                  <span class="form-checkstyle"></span>
+                                  <p class="check-text">
+                                    Нажимая на эту кнопку я соглашаюсь с 
+                                    <span>договором публичной оферты</span>
+                                  </p>
+                                </label>
+                                
+                              </div>
+
+                              <div class="form__btn">
+                                <button class="form__btn-submit but-init" type="submit">ОТПРАВИТЬ</button>
+                              </div>
+
+                          </form>
+
+                        </div>
+                    </div>
+
+                    <div class="footer__right">
+
+                        <div class="footer__right-logo">
+                          <img src="./img/лого-2.png" alt="">
+                        </div>
+
+                        <div class="footer__right-block">
+
+                          <div class="footer__block-top">
+                              <div class="footer__block-nav">
+
+                                <div class="footer__nav-title foot-title">
+                                  Навигация
+                                </div>
+
+                                <div class="footer__nav-menu">
+                                  <ul class="footer__nav-menu_l">
+                                      <li class="menu__l-item"><a class="menu__f-link" href="#">Главная</a></li>
+                                      <li class="menu__l-item"><a class="menu__f-link" href="#">О нас</a></li>
+                                      <li class="menu__l-item"><a class="menu__f-link" href="#">Програма</a></li>
+                                  </ul>
+
+                                  <ul class="footer__nav-menu_r">
+                                    <li class="menu__r-item"><a class="menu__f-link" href="#">Цена</a></li>
+                                    <li class="menu__r-item"><a class="menu__f-link" href="#">Отзывы</a></li>
+                                    <li class="menu__r-item"><a class="menu__f-link" href="#">Контакты</a></li>
+                                  </ul>
+                                </div>
+                                
+                              </div>
+
+                              <div class="footer__block-help">
+
+                                <div class="footer__help-title foot-title">
+                                  Помощь
+                                </div>
+
+                                  <ul class="footer__">
+                                      <li class="menu__help-item"><a class="menu__f-link" href="#">Поддержка</a></li>                       
+                                  </ul>
+                              </div>
+                          </div>
+
+                          <div class="footer__block-bottom">
+                              <div class="footer__block-contact">
+                                <div class="footer__contact-title foot-title">Контакты</div>
+                                
+                                <div class="footer__contact-desc">
+                                    <div class="footer__desc-data">
+                                      <a class="foot-desc-link" href="tel:+380951234567">+38 095 123 45 67</a>
+                                      <a class="foot-desc-link" href="mailto:itcourses@gmail.com">itcourses@gmail.com</a>
+                                    </div>
+                                    <div class="footer__desc-social">
+                                      <a class="footer__social" href="#"><img src="./img/foot-face.svg" alt=""></a>
+                                      <a class="footer__social" href="#"><img src="./img/foot-insta.svg" alt=""></a>
+                                      <a class="footer__social" href="#"><img src="./img/foot-tel.svg" alt=""></a>
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+
+                        </div>
+
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+
+          </div>
+        </footer>
+
+      </article> -->
 
     </article>
   
