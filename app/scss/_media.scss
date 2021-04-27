@@ -2,6 +2,24 @@
     .four-section-bg{
         background-image: url("../img/four-section-bg.png");
     }
+
+    .for__items-top .for__item{
+        &:nth-child(1) {
+            padding-right: 262px;
+        }
+        &:nth-child(2) {
+            margin-top: 47px;
+        }
+    }
+
+    .for__items-bottom .for__item{
+        &:nth-child(1) {
+            padding-right: 188px;
+        }
+        &:nth-child(2) {
+            margin-top: 36px;
+        }
+    }
 }
 
 @media (max-width: 768px) {
@@ -165,7 +183,7 @@
     }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 424px) {
     // ABOUT
     .about{
         background-image: url('../img/mobile-about.svg');
@@ -219,5 +237,208 @@
         max-height: 394px;
         padding: 101px 19px 46px 32px;
         transition: all .5s linear;
+    }
+
+    // FOR
+    .for{
+        margin-top: -200px;
+        background-image: url('../img/mobile-for.svg');
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+        padding-top: 272px;
+        padding-bottom: 300px;
+
+        &__inner{
+            padding-left: 15px;
+            margin-right: 0;
+        }
+    }
+
+    .for__items{
+        .for__item{
+            min-width: 344px;
+            margin: 0;
+            padding: 0;
+            margin-top: 52px;
+        }
+        &-top{
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+        }
+
+        &-bottom{
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+    }
+
+    .for__item {
+
+        &-circle{
+            width: 67px;
+            height: 67px;
+            left: 50%;
+            transform: translate(-50%);
+            top: -34px;
+
+            img{
+                width: 37px;
+            }
+        }
+
+        &-block{
+            max-width: 344px;
+
+        }
+        
+        &-text{
+            padding: 50px 33px 40px 33px;
+        }
+    }
+
+    .for__block{
+
+        &-title{
+            padding-bottom: 20px;
+        }
+    }
+
+    .circle-cut{
+        background: 
+            radial-gradient(circle at top, transparent 35px, #fff 0);
+    }
+
+    .for__img{
+        left: 50%;
+        transform: translate(-50%);
+        top: 98%;
+        width: 269px;
+    }
+
+    // PROGRAMM
+    .programm {
+        background-image: url('../img/mobile-programm.svg');
+        background-repeat: no-repeat;
+        background-position: 0px;
+    }
+    .programm__inner{
+        padding: 0 15px;
+    }
+
+    .programm__head-title{
+        padding-bottom: 5px;
+    }
+
+    .programm__head-subtitle{
+        max-width: 310px;
+        padding-bottom: 30px;
+    }
+
+    .programm__menu{
+        height: 1100px;
+
+        &-line{
+            max-width: 344px;
+            margin-bottom: 0;
+        }
+
+        &-title{
+            font-size: 17px;
+            line-height: 20px;
+            padding: 28px 70px 28px 31px;
+        }
+
+        &-btn{ 
+            right: 15px;
+        }
+
+        &-block{
+            margin-top: -75px;
+            position: relative;
+            left: 0;
+            opacity: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    .programm__subblock{
+        padding: 120px 19px 24px 39px;
+        max-width: 286px;
+
+        &-title{
+            display: none;
+        }
+
+    }
+
+    .programm__menu-image{
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%);
+        width: 234px;
+        z-index: -1;
+    }
+
+    .programm__menu-item.active .programm__menu-block{
+        max-height: 800px;
+    }
+
+    .programm__btn {
+        margin-top: 0;
+        bottom: 0;
+        &-submit{
+            font-size: 13px;
+            line-height: 17px;
+            padding: 22px 52px;
+        }
+    }
+
+
+    // PRICE 
+    .price{
+        margin-top: -450px;
+        background-image: url('../img/mobile-price.svg');
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+        z-index: -1;
+        min-height: 3400px;
+    }
+    .price__inner{
+        padding: 0 15px;
+        padding-top: 550px;
+    }
+
+    .price__block{
+        min-width: 344px;
+    }
+
+    .price__title{
+        padding-bottom: 58px;
+    }
+
+    .price__item{
+        margin-bottom: 100px;
+    }
+
+    .price__cards{
+        flex-wrap: wrap;
+    }
+
+    .price__item-big{
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    .price__block-btn {
+        bottom: -4%;
+    }
+
+    .price__block-btn_book{
+        font-size: 14px;
+        padding: 20px 85px;
     }
 }

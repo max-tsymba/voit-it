@@ -179,4 +179,150 @@ style="background-image: url(./img/about-bg.jpg);"
             <div class="container-main">
 
 
-         
+
+
+ <div class="accordion__item">
+
+                          <div class="accordion__item-top">
+
+                            <h3 class="accordion__item-title">В чем преимущество данного курса?</h3>
+                            <div class="accordion__item-btn">
+                              <div class="btn-shadow">
+                                  <div class="btn-main">
+                                      <div></div>
+                                      <div></div>
+                                  </div>
+                              </div>
+                            </div>
+
+                          </div>
+
+                          <div class="accordion__item-desc">
+                            <p>Дистанционное обучение стало популярным с появлением интернета, 
+                              открыв новые возможности развития для жителей удаленных населенных 
+                              пунктов и деловых людей с плотным рабочим графиком.
+                            </p>
+                            <p>
+                              Во время дистанционного обучения студент занимается самостоятельно по разработанной программе, 
+                              просматривает записи вебинаров, решает задачи, консультируется с преподавателем в онлайн-чате 
+                              и периодически отдает ему на проверку свои работы.
+                            </p>
+                          </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+  .accordion__item {
+    min-height: 106px;
+    margin-bottom: 25px;
+
+    &-top{
+        position: relative;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        width: 508px;
+        box-shadow: 15px 15px 45px 3px rgba(#000000, .08);
+        border-radius: 23px;
+        cursor: pointer;
+        height: 106px;
+        z-index: 2;
+    }
+
+    &-title{
+        margin: 0;
+        color: #535353;
+        font-weight: 800;
+        font-size: 19px;
+        line-height: 24px;
+        padding-left: 43px;
+    }
+
+    &-desc{
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 26px;
+        background-color: #fff;
+        box-shadow: 0px 15px 45px 3px rgba(#000000, .08);
+        padding: 0 60px 0 44px;
+        border-radius: 23px;
+        margin-top: -56px;
+        max-height: 0px;
+        margin-bottom: 25px;
+        opacity: 0;
+        overflow: hidden;
+        will-change: opacity, max-height, padding;
+        transition: opacity .5s linear, max-height .5s linear, padding .5s linear;
+        p{
+            margin: 0;
+            &:nth-child(1){
+                padding-bottom: 36px;
+            }
+        }
+    }
+}
+
+.btn-shadow{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 51px;
+    height: 51px;
+    right: -10px;
+    top: 27px;
+    border-radius: 100%;
+    background: #fff;
+    box-shadow:inset 0px 0px 30px 10px rgba(#000000, .05);
+}
+
+.btn-main{
+    width: 40px;
+    height: 40px;
+    right: 5px;
+    top: 5px;
+    border-radius: 100%;
+    background: linear-gradient(100deg,#66A362 20%, #9FCD81 70%);
+    box-shadow: 0px 10px 22px 4px rgba(#9FCD81, .5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    div{
+        position: absolute;
+        height: 2px;
+        background: #fff;
+        width: 11px;
+        border-radius: 10%;
+        transition: .5s all;
+        
+        &:nth-child(2) {
+            transform: rotate(90deg);
+            }
+        }
+}
+
+.accordion__item.active .btn-main{
+    div{
+        &:nth-child(2) {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.accordion__item.active .accordion__item-desc{
+    opacity: 1;
+    max-height: 394px;
+    padding: 101px 60px 46px 44px;
+    transition: all .5s linear;
+}

@@ -407,15 +407,13 @@
 .for{
     position: relative;
     min-height: 1266px;
+}
 
-        
-        .for__img{
-            position: absolute;
-            top: 55%;
-            left: 50%;
-            transform: translate(-30%, -50%);
-        }
-
+.for__img{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-30%, -50%);
 }
 
 .for__inner{
@@ -440,32 +438,17 @@
         display: flex;
         padding-left: 128px;
         margin-top: 60px;
+        flex-wrap: nowrap;
     }
 
     &-bottom{
         display: flex;
+        flex-wrap: nowrap;
         margin-top: 150px;
         padding-left: 80px;
     }
 }
 
-.for__items-top .for__item{
-    &:nth-child(1) {
-        padding-right: 262px;
-    }
-    &:nth-child(2) {
-        margin-top: 47px;
-    }
-}
-
-.for__items-bottom .for__item{
-    &:nth-child(1) {
-        padding-right: 188px;
-    }
-    &:nth-child(2) {
-        margin-top: 36px;
-    }
-}
 
 .for__item{
     min-width: 436px;
@@ -554,21 +537,6 @@
     
 }
 
-// .text{
-//     position: absolute;
-//     top: 0;
-//     left: 50%;
-//     padding: 140px 20px 0px 338px;
-//     width: 291px;
-//     height: 220px;
-//     background: white;
-//     display: inline-block;
-//     font-size: 268px;
-//     font-weight: 800;
-//     color: black;
-//     mix-blend-mode: lighten;
-// }
-
 .programm{
     position: relative;
     min-height: 1304px;
@@ -623,6 +591,7 @@
         background: #fff;
         max-width: 514px;
         min-height: 102px;
+        z-index: 2;
     }
 
     &-title{
@@ -640,7 +609,8 @@
 
     &-btn{
         position: absolute;
-        top: 25%;
+        top: 50%;
+        transform: translateY(-50%);
         right: 33px;
         border-radius: 50%;
         border: 1px solid #C9C9C9;
@@ -653,7 +623,6 @@
 
     &-block{
             position: absolute;
-            min-width: 633px;
             top: 0%;
             left: 50%;
             border-radius: 23px;
@@ -671,6 +640,7 @@
 // Sub Menu
 .programm__subblock{
     padding: 50px 88px 32px 72px;
+    width: 500px;
 
     &-sup{
         font-weight: 800;
@@ -751,6 +721,7 @@
 .price__cards{
     display: flex;
     justify-content: space-between;
+    flex-wrap: nowrap;
 }
 
 // Title

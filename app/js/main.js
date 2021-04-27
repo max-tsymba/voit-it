@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
         accrodionMenu();
         programmMenu();
+
 });
 
 $(function(){
@@ -44,24 +45,32 @@ function accrodionMenu() {
 
 // Programm Section - Sub Menu
 function programmMenu() {
+        
+        const media = window.matchMedia('(max-width: 376px)');
 
         let items = document.querySelectorAll('.programm__menu-item');
         let btn = document.querySelectorAll('.programm__menu-btn');
+
+        if(media.matches) items[0].classList.remove('active');
 
         for (let i=0; i<btn.length; i++) {
                 btn[i].addEventListener('click', ()=>{
                         
                         if(items[i].classList.contains('active')) {
-                                
+                                if(media.matches) items[i].classList.remove('active');
                         } else {
                                 let activeNode = null;
                                 try{
                                         activeNode = document.querySelector('.programm__menu .active');
                                 } catch(msg) {}
 
-                                setTimeout(()=>{
+                                if (media.matches) {
                                         items[i].classList.add('active');
-                                },800);
+                                } else {
+                                        setTimeout(()=>{
+                                                items[i].classList.add('active');
+                                        },800);                
+                                }
 
                                 if(activeNode) {
                                         activeNode.classList.remove('active');
