@@ -15,6 +15,13 @@
 
 @font-face {
     font-family: 'Muller';
+    src: url('../fonts/Fontfabric\ -\ MullerBold.otf') format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Muller';
     src: url('../fonts/Fontfabric\ -\ MullerExtraBoldItalic.otf') format("opentype");
     font-weight: 800;
     font-style: italic;

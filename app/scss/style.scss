@@ -1003,7 +1003,7 @@
 .feedback__slider button {
     position: absolute;
     z-index: 2;
-    bottom: -0%;
+    bottom: 0%;
     left: 30px;
     height: 48px;
     width: 48px;
@@ -1034,6 +1034,7 @@
 
 .footer__block{
     display: flex;
+    flex-wrap: nowrap;
 }
 
 // Title 
@@ -1067,8 +1068,12 @@
 
     &__rect{
         position: absolute;
-        margin-top: -50px;
-        left: -30px;
+        box-shadow: 0px -20px 20px rgba(34, 115, 170, 0.56);
+        border-radius: 23px;
+        top: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 538px;
     }
 
     &__inputs{
@@ -1123,18 +1128,6 @@
         clip: rect(0 0 0 0);
         margin-left: 45px;
 
-        // &:checked + .form-checkstyle::before{
-        //     content: '';
-        //     height: 21px;
-        //     width: 21px;
-        //     background-color: #535353;
-        //     position: absolute;
-        //     top: 50%;
-        //     left: 50%;
-        //     transform: translate(-50%, -50%);
-        //     border-radius: 5px;
-        // }
-
         &:checked + .form-checkstyle{
             background-image: url('../img/check.svg');
             background-repeat: no-repeat;
@@ -1172,7 +1165,6 @@
 }
 
 .message-input input{
-    // min-height: 178px;
     padding-bottom: 96px;
 }
 
@@ -1198,7 +1190,7 @@
 // Footer Menu
 .footer__right{
     padding-left: 162px;
-    padding-top: 420px;
+    padding-top: 320px;
 }
 
 .foot-title{
@@ -1253,6 +1245,11 @@
 
 .footer__block-bottom{
     padding-top: 100px;
+}
+
+.footer__desc-data {
+    font-weight: 700;
+    font-size: 15px;
 }
 
 .foot-desc-link{
