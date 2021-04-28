@@ -1,12 +1,44 @@
+@media (max-width: 1700px) {
+    // HEADER
+    .content__right{
+        img{
+            width: 600px;
+        }
+    }
+    // ABOUT
+    .about__left{
+        margin-right: 200px;
+    }
+
+    .about__right{
+        img{
+            width: 500px;
+        }
+    }
+    .sidebar__text{
+        left: 5px;
+    }
+}
+
 @media (max-width: 1441px) {
+    // HEADER
     .content__right{
         img{
             width: 500px;
         }
     }
+    // ABOUT
+    .about__left{
+        margin-right: 100px;
+    }
+
+    .accordion__item-desc{
+        width: 404px;
+    }
 }
 
 @media (max-width: 1323px) {
+    // HEADER
     .phone__link {
         display: none;
     }
@@ -14,9 +46,16 @@
     .content__right{
         margin-left: 0;
     }
+
+    // ABOUT
+    .sidebar__text{
+        display: none;
+    }
+
 }
 
 @media (max-width: 1156px) {
+    // HEADER
     .account__link{
         display: none;
     }
@@ -32,9 +71,21 @@
         position: relative;
         z-index: 2;
     }
+
+    // ABOUT
+    .about__left{
+        margin-right: 0;
+    }
+
+    .about__right{
+        img{
+            width: 400px;
+        }
+    }
 }
 
 @media (max-width: 1055px) {
+    // HEADER
     .menu__list{
     
         li + li{
@@ -46,9 +97,11 @@
         padding: 0 15px;
     }
 
+
 }
 
 @media (max-width: 913px) {
+    // HEADER
     .logo{
         img{
             width: 200px;
@@ -57,6 +110,11 @@
 
     .phone{
         padding-right: 20px;
+    }
+
+    // ABOUT
+    .about__right{
+        margin-left: -30%;
     }
 }
 
@@ -187,6 +245,7 @@
 }
 
 @media (max-width: 740px) {
+    // HEADER
     .content__left{
         padding-left: 0;
     }
@@ -198,9 +257,39 @@
             margin-left: 35px;
         }
     }
+    
+    // About 
+    .accordion__item {
+        &-top{
+            width: 86vw;
+        }
+
+        &-desc{
+            width: 71vw;
+        }
+    }
+
+    .about__right{
+        img{
+            width: 300px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            bottom: 5%;
+        }
+    }
 }
 
-@media (max-width: 615px) {
+@media (max-width: 691px) {
+    .accordion__item {
+
+        &-desc{
+            width: 69vw;
+        }
+    }
+}
+
+@media (max-width: 620px) {
     .content__right{
         img{
             width: 300px;
@@ -242,9 +331,40 @@
         }
 
     }
+
+    // ABOUT
+    .accordion__item{
+        position: relative;
+        z-index: 2;
+
+        &-title{
+            max-width: 200px;
+            padding-left: 32px;
+        }
+
+        &-desc{
+            width: 68vw;
+            font-size: 14px;
+            line-height: 23px;  
+        }
+    }
+}
+
+@media (max-width: 545px) {
+     // About 
+     .accordion__item {
+        &-top{
+            width: 84vw;
+        }
+        &-desc{
+            width: 63vw;
+        }
+    }
+
 }
 
 @media (max-width: 501px) {
+    // HEADER
     .left__bottom{
         &-btn{
             right: 0;
@@ -254,10 +374,21 @@
             left: 150px;
         }
     }
+
+    // About 
+    .accordion__item {
+        &-top{
+            width: 82vw;
+        }
+        &-desc{
+            width: 59vw;
+        }
+    }
 }
 
 
 @media (max-width: 430px) {
+    // HEADER
     .header{
         background-image: url('../img/mobile-head.svg');
     }
@@ -310,6 +441,23 @@
 
 
     }
+
+    // About 
+    .accordion__item {
+        &-top{
+            width: 80vw;
+        }
+        &-desc{
+            width: 54vw;
+        }
+    }
+
+    .accordion__item.active .accordion__item-desc{
+        opacity: 1;
+        max-height: 394px;
+        padding: 101px 60px 60px 44px;
+        transition: all .5s linear;
+    }
 }
 
 @media (max-width: 376px) {
@@ -321,28 +469,13 @@
         position: relative;
     }
 
-    .sidebar__text{
-        display: none;
-    }
-
     .about__left{
         padding-left: 15px;
         margin-right: 0;
     }
 
-    .about__right{
-        img{
-            width: 300px;
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%);
-            bottom: 5%;
-        }
-    }
 
     .accordion__item{
-        position: relative;
-        z-index: 2;
         &-top{
             width: 338px;
         }
@@ -354,8 +487,6 @@
 
         &-desc{
             width: 286px;
-            font-size: 14px;
-            line-height: 23px;
             padding: 0 19px 0 32px;
             
         }
