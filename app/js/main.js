@@ -54,7 +54,7 @@ function accrodionMenu() {
 // Programm Section - Sub Menu
 function programmMenu() {
         
-        const media = window.matchMedia('(max-width: 376px)');
+        const media = window.matchMedia('(max-width: 913px)');
 
         let items = document.querySelectorAll('.programm__menu-item');
         let btn = document.querySelectorAll('.programm__menu-btn');
