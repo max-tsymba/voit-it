@@ -16,11 +16,18 @@ $(function(){
 
                 responsive: [{
 
-                        breakpoint: 376,
+                        breakpoint: 1440,
+                        settings: {
+                                slidesToShow: 2,
+                        },
+
+                }, {
+                        breakpoint: 913,
                         settings: {
                                 slidesToShow: 1,
-                        }
-                }]
+                        },
+                }],
+
         });
 
 });
