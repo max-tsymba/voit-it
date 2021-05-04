@@ -645,7 +645,45 @@
     }
 }
 
-@media (max-width: 630px) {
+@media (max-width: 631px) {
+
+    .header{
+        background-image: url('../img/mobile-head.svg');
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+    }
+
+    .about{
+        background-image: url('../img/mobile-about.svg');
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        background-size: cover;
+        position: relative;
+    }
+
+    .footer{
+        background-image: url('../img/mobile-form.svg');
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+    }
+
+    .programm {
+        background-image: url('../img/mobile-programm.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0px;
+        margin-top: 50px;
+    }
+
+    .for{
+        background-image: url('../img/mobile-for.svg');
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+    }
+
     .content__right{
         img{
             width: 300px;
@@ -776,9 +814,6 @@
         padding-bottom: 56px;
     }
 
-    .footer__title{
-        text-align: center;
-    }
 
 }
 
@@ -1044,12 +1079,6 @@
 
 @media (max-width: 376px) {
     // ABOUT
-    .about{
-        background-image: url('../img/mobile-about.svg');
-        background-repeat: no-repeat;
-        background-position: bottom right;
-        position: relative;
-    }
 
     .about__left{
         padding-left: 15px;
@@ -1084,10 +1113,6 @@
     // FOR
     .for{
         margin-top: -200px;
-        background-image: url('../img/mobile-for.svg');
-        background-repeat: no-repeat;
-        background-position: top;
-        background-size: cover;
         padding-top: 272px;
         padding-bottom: 300px;
 
@@ -1095,6 +1120,9 @@
             padding: 0 15px;
             margin-right: 0px;
         }
+    }
+    .for__title{
+        color: #fff;
     }
 
     .for__block{
@@ -1117,10 +1145,8 @@
     }
 
     // PROGRAMM
-    .programm {
-        background-image: url('../img/mobile-programm.svg');
-        background-repeat: no-repeat;
-        background-position: 0px;
+    .programm{
+        margin-top: 0px;
     }
     .programm__inner{
         padding: 0 15px;
@@ -1172,9 +1198,6 @@
     .footer{
         margin-top: -250px;
         padding-top: 200px;
-        background-image: url('../img/mobile-form.svg');
-        background-repeat: no-repeat;
-        background-position: bottom;
         &__inner{
             padding-left: 15px;
             padding-right: 15px;
@@ -1209,7 +1232,7 @@
     }
 }
 
-@media (min-width: 376px) {
+@media (min-width: 631px) {
     .fullback{
         background-image: url('../img/head-all.svg');
         background-position: top;
