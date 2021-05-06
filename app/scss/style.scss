@@ -22,14 +22,11 @@
 
 .four-section-bg{
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: top center;
 }
 
-.two-section-bg{
-    background-repeat: no-repeat;
+.footer{
     background-position: top center;
-    background-size: cover;
 }
 
 .but-init{
@@ -45,7 +42,6 @@
 .header{
     min-height: 1082px;
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: top center;
 }
 
@@ -53,6 +49,8 @@
 // Top + Menu
 .header__top{
     padding-top: 31px;
+    left: 0;
+    right: 0;
 }
 
 .menu-hamburger{
@@ -61,12 +59,24 @@
 
 .header__group{
     background-color: #fff;
+    max-width: 1344px;
+    margin: 0 auto;
     border-radius: 23px;
     display: flex;
     justify-content: space-between;
     height: 120px;
     align-items: center;
     padding: 0 41px;
+}
+
+.fixed{
+    position: fixed;
+    z-index: 10;
+    opacity: 0.8;
+
+    &:hover{
+        opacity: 1;
+    }
 }
 
 .logo{

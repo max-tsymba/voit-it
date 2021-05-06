@@ -188,6 +188,7 @@
         left: 50%;
         transform: translate(-50%);
         margin: 0;
+        display: none;
     }
 
     .content__left{
@@ -332,10 +333,6 @@
         padding-bottom: 20px;
     }
 
-    .footer__title{
-        color: #454545;
-    }
-
 }
 
 @media (max-width: 913px) {
@@ -346,9 +343,10 @@
         }
     }
 
-    .for__title{
-        color: #454545;
+    .footer{
+        background-position: -200px center;
     }
+
 
     .phone{
         padding-right: 20px;
@@ -510,6 +508,18 @@
         padding-top: 0;
     }
 
+    .fixed{
+        padding: 0 15px;
+    
+        .logo{
+            display: none;
+        }
+
+        .left-side{
+            display: none;
+        }
+    }
+
     .header__content{
         padding-top: 20px;
     }
@@ -647,42 +657,7 @@
 
 @media (max-width: 631px) {
 
-    .header{
-        background-image: url('../img/mobile-head.svg');
-        background-repeat: no-repeat;
-        background-position: top;
-        background-size: cover;
-    }
-
-    .about{
-        background-image: url('../img/mobile-about.svg');
-        background-repeat: no-repeat;
-        background-position: bottom right;
-        background-size: cover;
-        position: relative;
-    }
-
-    .footer{
-        background-image: url('../img/mobile-form.svg');
-        background-repeat: no-repeat;
-        background-position: top;
-        background-size: cover;
-    }
-
-    .programm {
-        background-image: url('../img/mobile-programm.svg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 0px;
-        margin-top: 50px;
-    }
-
-    .for{
-        background-image: url('../img/mobile-for.svg');
-        background-repeat: no-repeat;
-        background-position: top;
-        background-size: cover;
-    }
+    
 
     .content__right{
         img{
@@ -999,6 +974,7 @@
         img{
             width: 248px;
         }
+        display: block;
     }
 
     .content__left{
@@ -1078,6 +1054,38 @@
 }
 
 @media (max-width: 376px) {
+    .header{
+        background-image: url('../img/mobile-head.svg');
+        background-repeat: no-repeat;
+        background-position: top;
+    }
+
+    .about{
+        background-image: url('../img/mobile-about.svg');
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        position: relative;
+    }
+
+    .footer{
+        background-image: url('../img/mobile-form.svg');
+        background-repeat: no-repeat;
+        background-position: top;
+    }
+
+    .programm {
+        background-image: url('../img/mobile-programm.svg');
+        background-repeat: no-repeat;
+        background-position: 0px;
+        margin-top: 50px;
+    }
+
+    .for{
+        background-image: url('../img/mobile-for.svg');
+        background-repeat: no-repeat;
+        background-position: top;
+
+    }
     // ABOUT
 
     .about__left{
@@ -1164,7 +1172,6 @@
         background-image: url('../img/mobile-price.svg');
         background-repeat: no-repeat;
         background-position: top;
-        background-size: cover;
         z-index: -1;
         min-height: 3400px;
     }
@@ -1181,7 +1188,6 @@
         background-position: top left;
         padding-top: 150px;
         margin-top: -580px;
-        // background-size: cover;
     }
     .feedback__title{
         padding-left: 15px;
@@ -1232,16 +1238,26 @@
     }
 }
 
-@media (min-width: 631px) {
+@media (min-width: 376px) {
     .fullback{
         background-image: url('../img/head-all.svg');
         background-position: top;
         background-repeat: no-repeat;
+    }
+
+    .feedback {
+        background-image: url('../img/feed-bg.svg');
+        background-position: top center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
 
-    .two-section-bg{
-        background-image: url('../img/two-section-bg.png');
+    .footer {
+        background-image: url('../img/footer-bg.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: -200px;
+        padding-top: 250px;
     }
     
 

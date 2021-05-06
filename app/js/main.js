@@ -6,6 +6,17 @@ window.addEventListener('DOMContentLoaded', ()=>{
 });
 
 $(function(){
+
+        const media = window.matchMedia('(max-width: 768px)');
+
+        $(window).on('scroll', function(){
+                
+                if($(window).scrollTop()) {
+                        $('.header__top').addClass('fixed'); 
+                } else {
+                        $('.header__top').removeClass('fixed');
+                }
+        });
         
         $('.feedback__slider').slick({
                 slidesToShow: 3,
