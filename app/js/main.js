@@ -13,8 +13,10 @@ $(function(){
                 
                 if($(window).scrollTop()) {
                         $('.header__top').addClass('fixed'); 
+                        $('.header__content').addClass('active');
                 } else {
                         $('.header__top').removeClass('fixed');
+                        $('.header__content').removeClass('active');
                 }
         });
         

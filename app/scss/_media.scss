@@ -518,10 +518,20 @@
         .left-side{
             display: none;
         }
+
+        &:hover{
+            .header__group{
+                box-shadow: none;
+            }
+        }
     }
 
     .header__content{
         padding-top: 20px;
+    }
+
+    .header__content.active{
+        padding-top: 140px;
     }
 
     .content__right{
