@@ -73,22 +73,6 @@ html{
     padding: 0 41px;
 }
 
-.fixed{
-    position: fixed;
-    z-index: 10;
-    opacity: 0.7;
-    padding-left: 15px;
-    padding-right: 15px;
-    transition: .5s all;
-
-    &:hover{
-        opacity: 1;
-
-        .header__group{
-            box-shadow: 0px 5px 10px 3px rgba(#000000, .07);
-        }
-    }
-}
 
 .logo{
     margin-left: -36px;
@@ -244,6 +228,8 @@ html{
 
     &-btn{
         position: absolute;
+        border: none;
+        cursor: pointer;
         right: 0;
         display: inline-block;
         margin-top: 45px;
@@ -1334,14 +1320,15 @@ html{
 }
 
 .popup__question{
-    margin-top: 155px;
+    padding: 0 20px;
+    margin-top: 50px;
     min-height: 125px;
     font-size: 24px;
 }
 
 .popup__group{
     margin-top: 15px;
-    padding-bottom: 224px;
+    padding-bottom: 54px;
 
     &-btn{
         color: #2C7EB4;
@@ -1375,7 +1362,7 @@ html{
     box-shadow: 0px 17px 36px -5px rgba(159, 205, 129, 0.95);
 }
 
-.overlay{
+.overlay__popup{
     background: rgba(0,0,0,.5);
     position: fixed;
     top: 0;
@@ -1384,8 +1371,29 @@ html{
     right: 0;
     padding: 20px;
     z-index: 60;
+    display: none;
+}
+
+.fixed{
+    position: fixed;
+    z-index: 10;
+    opacity: 0.7;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: .5s all;
+
+    &:hover{
+        opacity: 1;
+
+        .header__group{
+            box-shadow: 0px 5px 10px 3px rgba(#000000, .07);
+        }
+    }
+}
+
+.overlay__popup.active{
+    display: block;
 }
 
 
-@import "animations";
 @import "media";
