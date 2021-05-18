@@ -1283,6 +1283,15 @@ html{
     margin-right: 16px;
 }
 
+textarea {
+    resize: none;
+}
+
+.textarea-control{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 // POPUP
 .popup__test{
     position: absolute;
