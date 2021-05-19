@@ -1476,11 +1476,12 @@ textarea {
 
 // Cabinet
 .cabinet__inner{
+    padding: 0;
     padding-bottom: 100px;
 }
 
-.cabinet__menu{
-    min-height: 500px;
+.cabinet-menu{
+    min-height: 300px;
 }
 
 .cabinet__name{
@@ -1489,8 +1490,9 @@ textarea {
 
 .cabinet__subblock{
     padding: 25px 44px 16px 36px;
-    width: 470px;
+    max-width: 470px;
 }
+
 
 .cabinet__info-box{
     display: flex;
