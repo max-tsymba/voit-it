@@ -952,7 +952,7 @@
 
     .footer__block-bottom{
         padding-top: 62px;
-        padding-bottom: 50px;
+        padding-bottom: 30px;
     }
 
     .footer__social{
@@ -1444,6 +1444,10 @@
         background-repeat: no-repeat;
         background-position: top;
         background-size: cover;
+    }
+
+    #header-bg{
+        min-height: 100vh;
     }
     
 

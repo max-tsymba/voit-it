@@ -1405,4 +1405,73 @@ textarea {
 }
 
 
+// OFFER
+.offer__content{
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.offer__title{
+    margin: 0;
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 50px 0px;
+}
+
+.offer__text{
+    margin: 0;
+    font-size: 16px;
+    line-height: 22px;
+    padding-bottom: 50px;
+}
+
+// Intro Cabinet
+.intro__content{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.intro__title{
+    margin: 0;
+    font-size: 36px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 70px 0 50px 0;
+}
+
+.intro__box{
+    text-align: center;
+    img{
+        width: 200px;
+        opacity: 0.2;
+    }
+
+    div{
+        color: #000000;
+        opacity: 0.2;
+        font-weight: 800;
+        font-size: 24px;
+        padding: 5px 0;
+    }
+}
+
+.intro__text{
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    a{
+        font-style: italic;
+        text-decoration: underline;
+    }
+
+    padding: 50px 0;
+}
+
+
 @import "media";
