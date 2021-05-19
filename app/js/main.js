@@ -13,11 +13,11 @@ $(function(){
         $(window).on('scroll', function(){
                 
                 if($(window).scrollTop()) {
-                        $('.header__top').addClass('fixed'); 
-                        $('.header__content').addClass('active');
+                        $('.header__top.fix').addClass('fixed'); 
+                        $('.header__content.fix').addClass('active');
                 } else {
-                        $('.header__top').removeClass('fixed');
-                        $('.header__content').removeClass('active');
+                        $('.header__top.fix').removeClass('fixed');
+                        $('.header__content.fix').removeClass('active');
                 }
         });
         
@@ -119,29 +119,34 @@ function popup() {
         const html = document.querySelector('html');
         const scroll = calcScroll();
 
-        popupBtn.addEventListener('click', ()=>{
+        if(popupBtn != null) {
+                popupBtn.addEventListener('click', ()=>{
 
-                popup.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                document.body.style.marginRight = `${scroll}px`;
-
-                if(media.matches) {
-                        document.body.style.position = 'fixed';
-                }
-                
-        });
-
-        popup.addEventListener('click', (e) =>{
-                if(e.target === popup) {
-                        popup.classList.remove('active');
-                        document.body.style.overflow = 'scroll';
-                        document.body.style.marginRight = '0px';
-
+                        popup.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                        document.body.style.marginRight = `${scroll}px`;
+        
                         if(media.matches) {
-                                document.body.style.position = 'relative';
+                                document.body.style.position = 'fixed';
                         }
-                }
-        })
+                        
+                });
+        }
+
+        if(popup != null) {
+                popup.addEventListener('click', (e) =>{
+                        if(e.target === popup) {
+                                popup.classList.remove('active');
+                                document.body.style.overflow = 'scroll';
+                                document.body.style.marginRight = '0px';
+        
+                                if(media.matches) {
+                                        document.body.style.position = 'relative';
+                                }
+                        }
+                })
+        }
+
      
       
 }
