@@ -83,40 +83,13 @@
             </div>
 
             <div class="overlay__popup">
-              <div class="popup__reg modal">
-
-                <div class="popup__reg-top modal-top">
-                  <img class="form__rect register__rect" src="./img/login-rect.svg" alt="">
-                  <h1 class="popup__reg-title">Авторизация</h1>
-                </div>
-
-                <div class="popup__reg-content" id="first-page">
-                  <div class="form__group reg__group">
-                    <input class="form-control form-reg" type="text" placeholder="Email">
-                  </div>
-
-                  <button class="popup__reg-btn but-init">Отправить код</button>
-                </div>
-
-                <div class="popup__reg-content" id="second-page">
-                  <div class="form__group reg__group">
-                    <input class="form-control form-reg" type="text" placeholder="Пароль">
-                  </div>
-
-                  <button class="popup__reg-btn but-init">Авторизоваться</button>
-                </div>
-
-              </div>
-
               <div class="popup__login modal">
 
                 <div class="popup__login-top modal-top">
                   <img class="form__rect register__rect" src="./img/login-rect.svg" alt="">
                   <h1 class="popup__reg-title">Авторизация</h1>
-                  <div class="popup__close">
-                    <div></div>
-                    <div></div>
-                  </div>
+                  <button class="popup__close">
+                  </button>
                 </div>
 
                 <div class="popup__login-content">
@@ -129,7 +102,7 @@
                   </div>
 
                   <div class="popup__login-btn">
-                      <button class="login-btn">Зарегистрируйтесь</button>, если у вас еще нет учетной записи.
+                      <button class="login-btn reg-btn">Зарегистрируйтесь</button>, если у вас еще нет учетной записи.
                   </div>
 
                   <button class="popup__reg-btn but-init log-btn">Авторизоваться</button>
@@ -138,11 +111,41 @@
 
               </div>
 
+              <div class="popup__reg modal">
+
+                <div class="popup__reg-top modal-top">
+                  <img class="form__rect register__rect" src="./img/login-rect.svg" alt="">
+                  <h1 class="popup__reg-title">Регистрация</h1>
+                  <button class="popup__close reg-btn">
+                  </button>
+                </div>
+
+                <div class="popup__reg-content" id="first-page">
+                  <div class="form__group reg__group">
+                    <input class="form-control form-reg" type="text" placeholder="Email">
+                  </div>
+
+                  <button class="popup__reg-btn but-init reg-btn">Отправить код</button>
+                </div>
+
+                <div class="popup__reg-content" id="second-page">
+                  <div class="form__group reg__group">
+                    <input class="form-control form-reg" type="text" placeholder="Пароль">
+                  </div>
+
+                  <button class="popup__reg-btn but-init reg-btn">Зарегистрироваться</button>
+                </div>
+
+              </div>
+
+
               <div class="popup__test">
 
                 <div class="popup__top">
                   <img src="./img/popup.png" alt="">
                   <h1 class="popup__title">Тест</h1>
+                  <button class="popup__close reg-btn">
+                  </button>
                 </div>
   
                 <div class="popup__question">

@@ -64,14 +64,71 @@
               </div>
               
               <div class="intro__text">
-                <a class="intro__text-login" href="./cabinet.html">Авторизируйтесь</a>
+                <button class="intro__text-login popup-btn" href="./cabinet.html">Авторизируйтесь</button>
                 чтобы просмотреть все ваши заказы
               </div>
               
             </div>
         </div>
 
-        
+        <div class="overlay__popup">
+          <div class="popup__login modal">
+
+            <div class="popup__login-top modal-top">
+              <img class="form__rect register__rect" src="./img/login-rect.svg" alt="">
+              <h1 class="popup__reg-title">Авторизация</h1>
+              <button class="popup__close">
+              </button>
+            </div>
+
+            <div class="popup__login-content">
+
+              <div class="form__group reg__group">
+                <input class="form-control form-reg" type="text" placeholder="Email">
+              </div>
+              <div class="form__group reg__group">
+                <input class="form-control form-reg" type="text" placeholder="Пароль">
+              </div>
+
+              <div class="popup__login-btn">
+                  <button class="login-btn reg-btn">Зарегистрируйтесь</button>, если у вас еще нет учетной записи.
+              </div>
+
+              <button class="popup__reg-btn but-init log-btn">Авторизоваться</button>
+
+            </div>
+
+          </div>
+
+          <div class="popup__reg modal">
+
+            <div class="popup__reg-top modal-top">
+              <img class="form__rect register__rect" src="./img/login-rect.svg" alt="">
+              <h1 class="popup__reg-title">Регистрация</h1>
+              <button class="popup__close reg-btn">
+              </button>
+            </div>
+
+            <div class="popup__reg-content" id="first-page">
+              <div class="form__group reg__group">
+                <input class="form-control form-reg" type="text" placeholder="Email">
+              </div>
+
+              <button class="popup__reg-btn but-init reg-btn">Отправить код</button>
+            </div>
+
+            <div class="popup__reg-content" id="second-page">
+              <div class="form__group reg__group">
+                <input class="form-control form-reg" type="text" placeholder="Пароль">
+              </div>
+
+              <button class="popup__reg-btn but-init reg-btn">Зарегистрироваться</button>
+            </div>
+
+          </div>
+
+
+        </div>
 
     </header>
   </article>
@@ -79,7 +136,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/libs.min.js"></script>
-    <!-- <script src="js/main.js"></script> -->
+    <script src="js/main.js"></script>
     
 </body>
 </html>

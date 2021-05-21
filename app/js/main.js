@@ -2,9 +2,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
         accrodionMenu();
         programmMenu();
-        modal('.overlay__popup','popup-btn', '.popup__close');
-        // popup();
-        // register();
+        modal('.overlay__popup','popup-btn', '.popup__close','.popup__login','reg-btn','.popup__reg', '.popup__reg-content', '.popup__test');
 
 });
 
@@ -111,57 +109,20 @@ function programmMenu() {
         }
 }
 
-// Popup
-// function popup() {
-
-//         const media = window.matchMedia('(max-width: 769px)');
-
-//         const popup = document.querySelector('.overlay__popup');
-//         const popupBtn = document.getElementById('popup-Btn');
-//         const html = document.querySelector('html');
-//         const scroll = calcScroll();
-//         const test = document.querySelector('.popup__test');
-//         const reg = document.querySelector('.popup__reg');
-
-//         if(popupBtn != null) {
-//                 popupBtn.addEventListener('click', ()=>{
-
-//                         popup.classList.add('active');
-//                         document.body.style.overflow = 'hidden';
-//                         document.body.style.marginRight = `${scroll}px`;
-        
-//                         if(media.matches) {
-//                                 document.body.style.position = 'fixed';
-//                         }
-                        
-//                 });
-//         }
-
-//         if(popup != null) {
-//                 popup.addEventListener('click', (e) =>{
-//                         if(e.target === popup) {
-//                                 popup.classList.remove('active');
-//                                 document.body.style.overflow = 'scroll';
-//                                 document.body.style.marginRight = '0px';
-        
-//                                 if(media.matches) {
-//                                         document.body.style.position = 'relative';
-//                                 }
-//                         }
-//                 })
-//         }
-
-     
-      
-// }
-
 // MODAL 
-function modal(popup, button, closeButton) {
+function modal(popup, button, closeButton, displayModal, regButton, regModal, regGroup, test) {
 
         const popupWindow = document.querySelector(popup),
               popupBtn = document.getElementsByClassName(button),
-              popupCls = document.querySelector(closeButton);
+              popupCls = document.querySelector(closeButton),
+              displayPopup = document.querySelector(displayModal),
+              regBtn = document.getElementsByClassName(regButton),
+              registerPopup = document.querySelector(regModal),
+              regRoad = document.querySelectorAll(regGroup),
+              popupTest = document.querySelector(test);
 
+        const header = document.querySelector('article');
+        const styleHeader = getComputedStyle(header);
         const scroll = calcScroll();
         const media = window.matchMedia('(max-width: 769px)');
 
@@ -169,16 +130,49 @@ function modal(popup, button, closeButton) {
 
                 [].forEach.call(popupBtn, (btn)=>{
 
-                        console.log(btn);
-                        btn.addEventListener('click', ()=>{
+                        btn.addEventListener('click', (but)=>{
 
                                 popupWindow.classList.add('active');
-                                document.body.style.overflow = 'hidden';
-                                document.body.style.marginRight = `${scroll}px`;
+                                displayPopup.style.display = 'block';
+
+                                if(styleHeader.minHeight === '0px') {
+                                        document.body.style.overflowY = 'hidden';
+                                        document.body.style.marginRight = `${scroll}px`;
+                                }
         
                                 if(media.matches) {
                                         document.body.style.position = 'fixed';
                                 }
+
+                                [].forEach.call(regBtn, (reg)=>{
+                                        
+                                        reg.addEventListener('click', (e)=>{
+
+                                               switch(e.target) {
+                                                 case regBtn[0]:
+                                                        displayPopup.style.display = 'none';
+                                                        registerPopup.style.display = 'block';
+                                                        break;
+                                                 case regBtn[1]:
+                                                 case regBtn[3]:
+                                                        regRoad[0].style.display = 'block';
+                                                        regRoad[1].style.display = 'none';
+                                                        registerPopup.style.display = 'none';
+                                                        // if(btn === popupBtn[0]) {
+                                                        //         popupTest.style.display = 'block';
+                                                        // } else {
+                                                        //         removePopup(popupWindow, styleHeader, media);
+                                                        // }
+                                                        removePopup(popupWindow, styleHeader, media);
+                                                        break;
+                                                 case regBtn[2]: 
+                                                        regRoad[0].style.display = 'none';
+                                                        regRoad[1].style.display = 'block';
+                                                        break;                                 
+                                               }
+                                        })
+                                
+                                })
                         });
                 })
                
@@ -188,15 +182,30 @@ function modal(popup, button, closeButton) {
 
                 popupCls.addEventListener('click', ()=>{
 
-                        popupWindow.classList.remove('active');
-                        document.body.style.overflow = 'scroll';
-                        document.body.style.marginRight = '0px';
-
-                        if(media.matches) {
-                                document.body.style.position = 'relative';
-                        }
+                        removePopup(popupWindow, styleHeader, media);
+                        
                 })
         }
+
+}
+
+
+function removePopup(window, style, mediaMatch) {
+        
+        const popupWindow = window,
+              styleHeader = style,
+              media = mediaMatch;
+
+              popupWindow.classList.remove('active');
+
+              if(styleHeader.minHeight === '0px') {
+                      document.body.style.overflowY = 'scroll';
+                      document.body.style.marginRight = '0px';
+              }
+
+              if(media.matches) {
+                      document.body.style.position = 'relative';
+              }
 }
 
 function calcScroll() {

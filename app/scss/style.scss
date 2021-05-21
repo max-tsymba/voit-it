@@ -1467,9 +1467,15 @@ textarea {
     color: #fff;
     text-transform: uppercase;
     position: relative;
-    a{
+    button{
+        font-size: 14px;
+        color: #fff;
+        text-transform: uppercase;
+        cursor: pointer;
         font-style: italic;
         text-decoration: underline;
+        background-color: transparent;
+        border: none;
     }
 
     padding: 50px 0;
@@ -1587,6 +1593,7 @@ textarea {
     top: 25%;
     left: 50%;
     transform: translate(-50%, -25%);
+    display: none;
 }
 
 .popup__login-content{
@@ -1622,28 +1629,42 @@ textarea {
     width: 25px;
     height: 25px;
     cursor: pointer;
+    border: none;
     border: 1px solid #fff;
     border-radius: 50%;
-    padding: 5px;
+    padding: 15px;
+    background-color: transparent;
+    z-index: 10;
 
-    div{
+    &::after,
+    &::before{
+        content: "";
         position: absolute;
         background-color: #fff;
         height: 2px;
         width: 25px;
         display: block;
-        top: 0;
-        bottom: 0;
-        margin: auto 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
 
-        &:nth-child(1){
-            transform: rotate(45deg);
-        }
+    &::after{
+        transform: rotate(45deg);
+    }
 
-        &:nth-child(2){
-            transform: rotate(-45deg);
-        }
+    &::before{
+        transform: rotate(-45deg);
     }
 }
+
+#header-bg{
+    min-height: 100vh;
+}
+
+#article-bg{
+    min-height: 100vh;
+}
+
 
 @import "media";
