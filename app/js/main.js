@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
         accrodionMenu();
         programmMenu();
         popup();
+        // register();
 
 });
 
@@ -118,11 +119,14 @@ function popup() {
         const popupBtn = document.getElementById('popup-Btn');
         const html = document.querySelector('html');
         const scroll = calcScroll();
+        const test = document.querySelector('.popup__test');
+        const reg = document.querySelector('.popup__reg');
 
         if(popupBtn != null) {
                 popupBtn.addEventListener('click', ()=>{
 
                         popup.classList.add('active');
+                        // reg.style.display = 'block';
                         document.body.style.overflow = 'hidden';
                         document.body.style.marginRight = `${scroll}px`;
         
@@ -137,6 +141,7 @@ function popup() {
                 popup.addEventListener('click', (e) =>{
                         if(e.target === popup) {
                                 popup.classList.remove('active');
+                                // test.style.display = 'none';
                                 document.body.style.overflow = 'scroll';
                                 document.body.style.marginRight = '0px';
         
@@ -166,4 +171,31 @@ function calcScroll() {
         div.remove();
 
         return scrollWidth;
+}
+
+
+// Register
+
+function register() {
+
+        const regBtn = document.getElementsByClassName('popup__reg-btn');
+        const frstPage = document.getElementById('first-page'),
+              scndPage = document.getElementById('second-page'),
+              reg = document.querySelector('.popup__reg'),
+              test = document.querySelector('.popup__test');
+
+        [].forEach.call(regBtn, (button) =>{
+                button.addEventListener('click', (e)=>{
+                        
+                        if(e.target === regBtn[0]) {
+                                frstPage.style.display = 'none';
+                                scndPage.style.display = 'block';      
+                        } else {
+                               reg.style.display = 'none';
+                               test.style.display = 'block';
+                        }       
+                      
+                })
+        })
+
 }
