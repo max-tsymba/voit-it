@@ -11,7 +11,7 @@
 </head>
 <body>
   
-    <article class="fullback" id="fullback">
+    <article class="fullback" id="fullback">  
       <header class="header" id="home">
 
         <div class="container">
@@ -979,7 +979,7 @@
                     <div class="footer__left">
                         <div class="footer__item">
 
-                          <form class="contact__form">
+                          <form class="contact__form" action="#" id="contact-form" novalidate>
 
                               <div class="form__logo">
                                 <img src="./img/form-logo.svg" alt="">
@@ -991,26 +991,26 @@
 
                               <div class="form__inputs">
                                 <div class="form__group">
-                                  <input class="form-control" type="text" placeholder="Имя">
+                                  <input class="form-control _name _req" type="text" name="name" placeholder="Имя*" required>
                                 </div>
   
                                 <div class="form__group">
-                                  <input class="form-control" type="text" placeholder="Фамилия">
+                                  <input class="form-control _surname _req" type="text" name="surname" placeholder="Фамилия*" required>
                                 </div>
   
                                 <div class="form__group">
-                                  <input class="form-control" type="text" placeholder="Email">
+                                  <input class="form-control _email _req" type="email" name="email" placeholder="Email*" required>
                                 </div>
   
                                 <div class="form__group message-input">
-                                  <textarea class="form-control textarea-control" placeholder="Сообщение"></textarea>
+                                  <textarea class="form-control textarea-control" name="message" placeholder="Сообщение"></textarea>
                                 </div>
                               </div>
 
                               <div class="form__gr-check">
 
                                 <label>
-                                  <input class="form-checkbox" type="checkbox">
+                                  <input class="form-control form-checkbox _req" name="checkbox" type="checkbox" required>
                                   <span class="form-checkstyle"></span>
                                   <p class="check-text">
                                     Нажимая на эту кнопку я соглашаюсь с 
@@ -1021,7 +1021,7 @@
                               </div>
 
                               <div class="form__btn">
-                                <button class="form__btn-submit but-init" type="submit">ОТПРАВИТЬ</button>
+                                <button class="form__btn-submit but-init" type="submit" value="Reset">ОТПРАВИТЬ</button>
                               </div>
 
                           </form>

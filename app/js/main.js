@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
         accrodionMenu();
         programmMenu();
         modal('.overlay__popup','popup-btn', '.popup__close','.popup__login','reg-btn','.popup__reg', '.popup__reg-content', '.popup__test');
-
+        validatorForm('contact-form', '._req');
 });
 
 $(function(){
@@ -225,6 +225,103 @@ function calcScroll() {
         return scrollWidth;
 }
 
+//FORM SEND
+function validatorForm(form, formReq) {
+
+    const FILE_PHP = "../sendmail.php";
+    const contactForm = document.getElementById(form);
+    const contactReq = document.querySelectorAll(formReq);
+
+    contactForm.addEventListener('submit', formSend);
+
+    async function formSend(e) {
+            e.preventDefault();
+
+            let error = validator(contactForm, contactReq);
+
+            let formData = new FormData(contactForm);
+            
+            if(error === 0) {
+                    contactForm.classList.add('_sending');
+
+                    let response = await fetch(FILE_PHP, {
+                            method: "POST",
+                            body: formData
+                    });
+
+                    if(response.ok) {
+                            let result = await response.json();
+                            contactForm.classList.remove('_sending');
+                            Reset(contactForm);
+                    } else {
+                            alert('Ошибка');
+                            contactForm.classList.remove('_sending');
+                    }
+
+            } else {
+                    alert('Заполните обязательные поля!');
+            }
+    }
+    
+}
+
+function Reset(form) {
+        form.reset();
+}
+
+// VALIDATOR
+function validator(form, req) {
+        let errorCount = 0;
+        const checkbox = document.querySelector('.form-checkstyle');
+
+        for(i=0;i<req.length;i++) {
+            const input = req[i];
+
+            formRemoveError(input);
+            checkbox.classList.remove('_error');
+
+            if(input.classList.contains('_name') || input.classList.contains('_surname')) {
+                if(nameTest(input)) {
+                        formAddError(input);
+                        errorCount++;
+                }
+
+            } else if(input.classList.contains('_email')){
+                if(emailTest(input)) {
+                        formAddError(input);
+                        errorCount++;
+                }
+            } else if(input.getAttribute("type") === 'checkbox' && input.checked === false) {
+                formAddError(input);
+                checkbox.classList.add('_error');
+                errorCount++;
+            } else {
+                    if(input.value === '') {
+                            formAddError(input);
+                            errorCount++;
+                    }
+            }
+        }
+
+        return errorCount;
+}
+
+
+function formAddError(input) {
+        input.classList.add('_error');
+}
+
+function formRemoveError(input) {
+        input.classList.remove('_error');
+}
+
+function nameTest(input) {
+        return !/^[аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхХцЦчЧшШщЩъЪыЫьЬэЭюЮяЯєЄїЇіІ]+$/.test(input.value);
+}
+
+function emailTest(input) {
+        return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+}
 
 // Register
 function register() {
