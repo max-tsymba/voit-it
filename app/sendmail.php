@@ -11,34 +11,40 @@
     $mail->setLanguage('ru', 'phpmailer/language/');
     $mail->isHTML(true);
 
-    $mail->setFrom('macesbeats@gmail.com' ['name']);
+    $mail->setFrom($_POST['email'], $_POST['name']);
     $mail->addAddress('young.bezero@gmail.com');
     $mail->Subject = 'Форма VOIT';
+
+    $body = '<h1>Форма отзыва</h1>';
 
     if(trim(!empty($_POST['name']))) {
         $body.= '<p><strong>Имя: </strong> '.$_POST['name'].'</p>';
     }
 
     if(trim(!empty($_POST['surname']))) {
-        $body.= '<p><strong>Имя: </strong> '.$_POST['surname'].'</p>';
+        $body.= '<p><strong>Фамилия: </strong> '.$_POST['surname'].'</p>';
     }
 
     if(trim(!empty($_POST['email']))) {
-        $body.= '<p><strong>Имя: </strong> '.$_POST['email'].'</p>';
+        $body.= '<p><strong>Почта: </strong> '.$_POST['email'].'</p>';
     }
 
-    if(trim(!empty($_POST['message']))) {
-        $body.= '<p><strong>Имя: </strong> '.$_POST['message'].'</p>';
+    if(trim(!empty($_POST['mess']))) {
+        $body.= '<p><strong>Сообщение: </strong> '.$_POST['mess'].'</p>';
     }
 
+  
     $mail->Body = $body;
 
-    if($mail->send()) $message = 'Okay';
-    else $message = 'Error';
+    if($mail->send()) {
+        $message = 'Okay';
+    } else {
+        $message = 'Error';
+    }
 
     $response = ['message' => $message];
 
-    header('Content-type: application/json');
+    header('Content-Type: application/json');
     echo json_encode($response);
 
 ?>

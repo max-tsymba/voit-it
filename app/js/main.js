@@ -228,7 +228,7 @@ function calcScroll() {
 //FORM SEND
 function validatorForm(form, formReq) {
 
-    const FILE_PHP = "../sendmail.php";
+    const filePhp = "../sendmail.php";
     const contactForm = document.getElementById(form);
     const contactReq = document.querySelectorAll(formReq);
 
@@ -244,13 +244,16 @@ function validatorForm(form, formReq) {
             if(error === 0) {
                     contactForm.classList.add('_sending');
 
-                    let response = await fetch(FILE_PHP, {
-                            method: "POST",
+                    let response = await fetch(filePhp, {
+                            method: 'POST',
                             body: formData
                     });
 
+                    console.log(response);
+
                     if(response.ok) {
                             let result = await response.json();
+                            console.log(result.message);
                             contactForm.classList.remove('_sending');
                             Reset(contactForm);
                     } else {
