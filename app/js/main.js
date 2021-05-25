@@ -160,6 +160,7 @@ function modal(popup, button, closeButton, displayModal, regButton, regModal, re
                                                         regRoad[0].style.display = 'block';
                                                         regRoad[1].style.display = 'none';
                                                         registerPopup.style.display = 'none';
+                                                        regRoad[0].children[0].children[0].classList.remove('_error');
                                                 
                                                         // if(btn === popupBtn[0]) {
                                                         //         popupTest.style.display = 'block';
