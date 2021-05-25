@@ -126,6 +126,8 @@ function modal(popup, button, closeButton, displayModal, regButton, regModal, re
         const scroll = calcScroll();
         const media = window.matchMedia('(max-width: 769px)');
 
+        let result;
+
         if(popupBtn != null) {
 
                 [].forEach.call(popupBtn, (btn)=>{
@@ -147,7 +149,7 @@ function modal(popup, button, closeButton, displayModal, regButton, regModal, re
                                 [].forEach.call(regBtn, (reg)=>{
                                         
                                         reg.addEventListener('click', (e)=>{
-
+                                                
                                                switch(e.target) {
                                                  case regBtn[0]:
                                                         displayPopup.style.display = 'none';
@@ -166,9 +168,10 @@ function modal(popup, button, closeButton, displayModal, regButton, regModal, re
                                                         removePopup(popupWindow, styleHeader, media);
                                                         break;
                                                  case regBtn[2]: 
+                                                        validatorForm('first-page', '.form-reg-mail');
                                                         regRoad[0].style.display = 'none';
                                                         regRoad[1].style.display = 'block';
-                                                        break;                                 
+                                                        break;                                    
                                                }
                                         })
                                 
@@ -231,41 +234,43 @@ function validatorForm(form, formReq) {
     const filePhp = "../sendmail.php";
     const contactForm = document.getElementById(form);
     const contactReq = document.querySelectorAll(formReq);
-
+    let errorCount = 0;
     contactForm.addEventListener('submit', formSend);
 
     async function formSend(e) {
             e.preventDefault();
+            errorCount = validator(contactForm, contactReq);
 
-            let error = validator(contactForm, contactReq);
+        //     errorCount = popupValidate(contactReq);
+            console.log(errorCount);
+            console.log(contactReq);
 
             let formData = new FormData(contactForm);
             
-            if(error === 0) {
-                    contactForm.classList.add('_sending');
+        //     if(errorCount === 0) {
+        //             contactForm.classList.add('_sending');
 
-                    let response = await fetch(filePhp, {
-                            method: 'POST',
-                            body: formData
-                    });
+        //             let response = await fetch(filePhp, {
+        //                     method: 'POST',
+        //                     body: formData
+        //             });
 
-                    console.log(response);
 
-                    if(response.ok) {
-                            let result = await response.json();
-                            console.log(result.message);
-                            contactForm.classList.remove('_sending');
-                            Reset(contactForm);
-                    } else {
-                            alert('Ошибка');
-                            contactForm.classList.remove('_sending');
-                    }
+        //             if(response.ok) {
+        //                     let result = await response.json();
+        //                     console.log(result.message);
+        //                     contactForm.classList.remove('_sending');
+        //                     Reset(contactForm);
+        //             } else {
+                        
+        //                     alert('Ошибка');
+        //                     contactForm.classList.remove('_sending');
+        //             }
 
-            } else {
-                    alert('Заполните обязательные поля!');
-            }
+        //     }
+
     }
-    
+
 }
 
 function Reset(form) {
@@ -282,6 +287,9 @@ function validator(form, req) {
 
             formRemoveError(input);
             checkbox.classList.remove('_error');
+
+
+            console.log(errorCount);
 
             if(input.classList.contains('_name') || input.classList.contains('_surname')) {
                 if(nameTest(input)) {

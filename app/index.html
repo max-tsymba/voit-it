@@ -120,21 +120,21 @@
                   </button>
                 </div>
 
-                <div class="popup__reg-content" id="first-page">
+                <form action="#" class="popup__reg-content" id="first-page" novalidate>
                   <div class="form__group reg__group">
-                    <input class="form-control form-reg" type="text" placeholder="Email">
+                    <input class="form-control form-reg-mail" type="email" name="register-mail" placeholder="Email" autocomplete="off" required>
                   </div>
 
-                  <button class="popup__reg-btn but-init reg-btn">Отправить код</button>
-                </div>
+                  <button class="popup__reg-btn but-init reg-btn" type="submit" value="Reset">Отправить код</button>
+                </form>
 
-                <div class="popup__reg-content" id="second-page">
+                <form class="popup__reg-content" id="second-page">
                   <div class="form__group reg__group">
                     <input class="form-control form-reg" type="text" placeholder="Пароль">
                   </div>
 
                   <button class="popup__reg-btn but-init reg-btn">Зарегистрироваться</button>
-                </div>
+                </form>
 
               </div>
 
