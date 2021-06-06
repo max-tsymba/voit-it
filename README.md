@@ -1,1 +1,1 @@
-# voit-it
+Landing for IT courses
