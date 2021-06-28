@@ -4,7 +4,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
         programmMenu();
         modal('.overlay__popup','popup-btn', '.popup__close','.popup__login','reg-btn','.popup__reg', '.popup__reg-content', '.popup__test');
         validatorForm('contact-form', '._req', "../sendmail.php");
-        validatorForm('first-page', '.form-reg-mail', "../sendCode.php");
+        register('register-form', '._req')
+        // validatorForm('first-page', '.form-reg-mail', "../sendCode.php");
 });
 
 $(function(){
@@ -146,33 +147,33 @@ function modal(popup, button, closeButton, displayModal, regButton, regModal, re
                                         document.body.style.position = 'fixed';
                                 }
 
-                                [].forEach.call(regBtn, (reg)=>{
+                                // [].forEach.call(regBtn, (reg)=>{
                                         
-                                        reg.addEventListener('click', (e)=>{
+                                //         reg.addEventListener('click', (e)=>{
                                                 
-                                               switch(e.target) {
-                                                 case regBtn[0]:
-                                                        displayPopup.style.display = 'none';
-                                                        registerPopup.style.display = 'block';
-                                                        break;
-                                                 case regBtn[1]:
-                                                 case regBtn[3]:
-                                                        regRoad[0].style.display = 'block';
-                                                        regRoad[1].style.display = 'none';
-                                                        registerPopup.style.display = 'none';
-                                                        regRoad[0].children[0].children[0].classList.remove('_error');
+                                //                switch(e.target) {
+                                //                  case regBtn[0]:
+                                //                         displayPopup.style.display = 'none';
+                                //                         registerPopup.style.display = 'block';
+                                //                         break;
+                                //                  case regBtn[1]:
+                                //                  case regBtn[3]:
+                                //                         regRoad[0].style.display = 'block';
+                                //                         regRoad[1].style.display = 'none';
+                                //                         registerPopup.style.display = 'none';
+                                //                         regRoad[0].children[0].children[0].classList.remove('_error');
                                                 
-                                                        // if(btn === popupBtn[0]) {
-                                                        //         popupTest.style.display = 'block';
-                                                        // } else {
-                                                        //         removePopup(popupWindow, styleHeader, media);
-                                                        // }
-                                                        removePopup(popupWindow, styleHeader, media);
-                                                        break;                                  
-                                               }
-                                        })
+                                //                         // if(btn === popupBtn[0]) {
+                                //                         //         popupTest.style.display = 'block';
+                                //                         // } else {
+                                //                         //         removePopup(popupWindow, styleHeader, media);
+                                //                         // }
+                                //                         removePopup(popupWindow, styleHeader, media);
+                                //                         break;                                  
+                                //                }
+                                //         })
                                 
-                                })
+                                // })
                         });
                 })
                
@@ -328,29 +329,4 @@ function nameTest(input) {
 
 function emailTest(input) {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
-}
-
-// Register
-function register() {
-
-        const regBtn = document.getElementsByClassName('popup__reg-btn');
-        const frstPage = document.getElementById('first-page'),
-              scndPage = document.getElementById('second-page'),
-              reg = document.querySelector('.popup__reg'),
-              test = document.querySelector('.popup__test');
-
-        [].forEach.call(regBtn, (button) =>{
-                button.addEventListener('click', (e)=>{
-                        
-                        if(e.target === regBtn[0]) {
-                                frstPage.style.display = 'none';
-                                scndPage.style.display = 'block';      
-                        } else {
-                               reg.style.display = 'none';
-                               test.style.display = 'block';
-                        }       
-                      
-                })
-        })
-
 }
