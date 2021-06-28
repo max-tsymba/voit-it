@@ -2,10 +2,11 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
         accrodionMenu();
         programmMenu();
-        modal('.overlay__popup','popup-btn', '.popup__close','.popup__login','reg-btn','.popup__reg', '.popup__reg-content', '.popup__test');
+        modal('.overlay__popup','popup-btn', '.popup__close','.popup__login');
         validatorForm('contact-form', '._req', "../sendmail.php");
         register('register-form', '._req');
         addTimer('timer');
+        registerModal('register-btn','.popup__reg', '.popup__login');
         // validatorForm('first-page', '.form-reg-mail', "../sendCode.php");
 });
 
@@ -120,18 +121,13 @@ function programmMenu() {
 }
 
 // MODAL 
-function modal(popup, button, closeButton, displayModal, regButton, regModal, regGroup, test) {
+function modal(popup, button, closeButton, displayModal) {
 
         const popupWindow = document.querySelector(popup),
               popupBtn = document.getElementsByClassName(button),
-              popupCls = document.querySelector(closeButton),
-              displayPopup = document.querySelector(displayModal),
-              regBtn = document.getElementsByClassName(regButton),
-              registerPopup = document.querySelector(regModal),
-              regRoad = document.querySelectorAll(regGroup),
-              popupTest = document.querySelector(test);
+              popupCls = document.querySelectorAll(closeButton),
+              displayPopup = document.querySelector(displayModal);
 
-        const firstPopup = document.getElementById('first-page');
         const header = document.querySelector('article');
         const styleHeader = getComputedStyle(header);
         const scroll = calcScroll();
@@ -155,33 +151,7 @@ function modal(popup, button, closeButton, displayModal, regButton, regModal, re
                                         document.body.style.position = 'fixed';
                                 }
 
-                                // [].forEach.call(regBtn, (reg)=>{
-                                        
-                                //         reg.addEventListener('click', (e)=>{
-                                                
-                                //                switch(e.target) {
-                                //                  case regBtn[0]:
-                                //                         displayPopup.style.display = 'none';
-                                //                         registerPopup.style.display = 'block';
-                                //                         break;
-                                //                  case regBtn[1]:
-                                //                  case regBtn[3]:
-                                //                         regRoad[0].style.display = 'block';
-                                //                         regRoad[1].style.display = 'none';
-                                //                         registerPopup.style.display = 'none';
-                                //                         regRoad[0].children[0].children[0].classList.remove('_error');
-                                                
-                                //                         // if(btn === popupBtn[0]) {
-                                //                         //         popupTest.style.display = 'block';
-                                //                         // } else {
-                                //                         //         removePopup(popupWindow, styleHeader, media);
-                                //                         // }
-                                //                         removePopup(popupWindow, styleHeader, media);
-                                //                         break;                                  
-                                //                }
-                                //         })
-                                
-                                // })
+                               
                         });
                 })
                
@@ -189,15 +159,29 @@ function modal(popup, button, closeButton, displayModal, regButton, regModal, re
 
         if(popupCls != null) {
 
-                popupCls.addEventListener('click', ()=>{
+                popupCls.forEach((item) => {
+                        item.addEventListener('click', ()=>{
 
-                        removePopup(popupWindow, styleHeader, media);
-                        
+                                removePopup(popupWindow, styleHeader, media);
+                                
+                        })
                 })
+
         }
 
 }
 
+function registerModal(buttonID, modalClass, loginModal) {
+
+        const openBtn = document.getElementById(buttonID),
+              modal = document.querySelector(modalClass),
+              login = document.querySelector(loginModal);
+
+        openBtn.addEventListener('click',() => {
+                login.style.display = 'none';
+                modal.style.display= 'block';
+        })
+}
 
 function removePopup(window, style, mediaMatch) {
         
@@ -424,7 +408,7 @@ function countdown() {
         $('.timer').show();   
         clearInterval(interval);
       } 
-  }, 100);
+  }, 1000);
 
 }
 
