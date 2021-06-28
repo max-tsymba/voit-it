@@ -28,12 +28,9 @@
                     </picture>
                   </a>
                 </div>
-                <div class="empty" style="order: -1;"></div>
-                <div class="mobile-menu fix">
-                  <a href="#" class="menu-hamburger">
-                    <div></div>
-                  </a>
-                </div>
+                <a href="#" class="menu-hamburger">
+                  <div></div>
+                </a>
                 <nav class="menu">
                     <ul class="menu__list">
                       <li class="menu__item"><a class="menu__link" href="#home">Главная</a></li>
@@ -131,11 +128,14 @@
                   </div>
 
                   <div class="form__group reg__group">
-                    <input class="form-control _req _code" type="text" name="register-code" placeholder="Пароль" style="display: none;">
+                    <input class="form-control _req _code" type="text" name="register-code" placeholder="Пароль" style="display: block;" required>
                   </div>
 
-                  <button class="popup__reg-btn but-init reg-btn" type="submit" value="Reset">Отправить код</button>
-                  <button class="popup__reg-btn but-init reg-btn" type="submit" value="Reset" style="display: none;">Зарегистрироваться</button>
+                  <span class="js-timeout" style="display: none;">1:00</span>
+                  <button class="timer" type="submit" id="timer" style="display: none;">Отправить код повторно</button>
+
+                  <button class="popup__reg-btn but-init reg-btn register" type="submit" value="Reset" style="display: block;">Отправить код</button>
+                  <button class="popup__reg-btn but-init reg-btn register" type="submit" value="Reset" style="display: none;">Зарегистрироваться</button>
                 </form>
 
               </div>

@@ -4,7 +4,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
         programmMenu();
         modal('.overlay__popup','popup-btn', '.popup__close','.popup__login','reg-btn','.popup__reg', '.popup__reg-content', '.popup__test');
         validatorForm('contact-form', '._req', "../sendmail.php");
-        register('register-form', '._req')
+        register('register-form', '._req');
+        addTimer('timer');
         // validatorForm('first-page', '.form-reg-mail', "../sendCode.php");
 });
 
@@ -336,4 +337,117 @@ function nameTest(input) {
 
 function emailTest(input) {
         return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+}
+
+
+// Register Function
+function register(formID, inputsReqClass) {
+
+    const form = document.getElementById(formID),
+          inputs = document.querySelectorAll(inputsReqClass);
+
+    const btns = document.querySelectorAll('.register');
+    const sendCodeButton = btns[0];
+    const registerButton = btns[1];
+
+    form.addEventListener('submit', formSend);
+
+    async function formSend(e) {
+            e.preventDefault();
+
+            let errorCount = miniValidator(inputs);
+
+            if(errorCount === 0) {
+
+                $('.js-timeout').show();
+                $('.js-timeout').text("1:00");
+                countdown();
+        
+                let dataForm = new FormData();
+                dataForm.set('register-mail', inputs[0].value);
+
+                let response = await fetch('sendCode.php', {
+                        method: 'POST',
+                        body: dataForm
+                });
+
+                if(response.ok) {
+                        let result = await response.json();
+                        inputs[1].style.display = 'block';
+                        sendCodeButton.style.display = 'none';
+                        registerButton.style.display = 'block';       
+                        console.log(result.message);
+                } else {                       
+                        alert('Ошибка');
+                }
+               
+            }
+
+    }
+}
+
+function addTimer(btnID) {
+
+        const btn = document.getElementById(btnID);
+        btn.addEventListener('click', () => {
+                $('.timer').hide();   
+                $('.js-timeout').show();
+                $('.js-timeout').text("1:00");
+                countdown();
+        });
+
+}
+
+var interval;
+
+function countdown() {
+  clearInterval(interval);
+  interval = setInterval( function() {
+      var timer = $('.js-timeout').html();
+      timer = timer.split(':');
+      var minutes = timer[0];
+      var seconds = timer[1];
+      seconds -= 1;
+      if (minutes < 0) {
+        return;
+      } 
+      else if (seconds < 0 && minutes != 0) {
+          minutes -= 1;
+          seconds = 59;
+      }
+      else if (seconds < 10 && length.seconds != 2) seconds = '0' + seconds;
+
+      $('.js-timeout').html(minutes + ':' + seconds);
+
+      if (minutes == 0 && seconds == 0) {
+        $('.js-timeout').hide();
+        $('.timer').show();   
+        clearInterval(interval);
+      } 
+  }, 100);
+
+}
+
+function miniValidator(inputs) {
+    let errors = 0;
+
+    for(let index = 0; index < inputs.length; index++) {
+        
+        const input = inputs[index];
+
+        formRemoveError(input);
+        if(input.classList.contains('_login-mail')) {
+            
+              if(emailTest(input)) {
+                      formAddError(input);
+                      errors++;
+              } else if (input.value === '') {
+                      formAddError(input);
+                      errors++;
+              }
+        }
+    }
+
+    return errors;
+
 }
