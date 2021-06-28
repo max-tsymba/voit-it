@@ -503,6 +503,9 @@
 
         &-btn{ 
             right: 15px;
+            img{
+                transform: rotate(90deg);
+            }
         }
 
         &-block{
@@ -593,14 +596,6 @@
 
     .fixed{
         padding: 0 15px;
-    
-        .logo{
-            display: none;
-        }
-
-        .left-side{
-            display: none;
-        }
 
         &:hover{
             .header__group{
