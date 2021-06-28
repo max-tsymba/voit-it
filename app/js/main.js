@@ -189,7 +189,10 @@ function removePopup(window, style, mediaMatch) {
               styleHeader = style,
               media = mediaMatch;
 
+        const regModal = document.querySelector('.popup__reg');
+
               popupWindow.classList.remove('active');
+              regModal.style.display = 'none';
 
               if(styleHeader.minHeight === '0px') {
                       document.body.style.overflowY = 'scroll';
@@ -199,6 +202,7 @@ function removePopup(window, style, mediaMatch) {
               if(media.matches) {
                       document.body.style.position = 'relative';
               }
+
 }
 
 function calcScroll() {
