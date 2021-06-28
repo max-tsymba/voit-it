@@ -190,9 +190,17 @@ function removePopup(window, style, mediaMatch) {
               media = mediaMatch;
 
         const regModal = document.querySelector('.popup__reg');
+        const loginForm = popupWindow.children[0].children[1];
+        const registerForm = popupWindow.children[1].children[1];
+        const codeInput = document.querySelector('._code');
 
               popupWindow.classList.remove('active');
               regModal.style.display = 'none';
+              codeInput.style.display = 'none';
+              $('.js-timeout').text("1:00");
+              $('.js-timeout').hide();
+              Reset(loginForm);
+              Reset(registerForm);
 
               if(styleHeader.minHeight === '0px') {
                       document.body.style.overflowY = 'scroll';
@@ -346,10 +354,6 @@ function register(formID, inputsReqClass) {
             let errorCount = miniValidator(inputs);
 
             if(errorCount === 0) {
-
-                $('.js-timeout').show();
-                $('.js-timeout').text("1:00");
-                countdown();
         
                 let dataForm = new FormData();
                 dataForm.set('register-mail', inputs[0].value);
@@ -364,6 +368,9 @@ function register(formID, inputsReqClass) {
                         inputs[1].style.display = 'block';
                         sendCodeButton.style.display = 'none';
                         registerButton.style.display = 'block';       
+                        $('.js-timeout').show();
+                        $('.js-timeout').text("1:00");
+                        countdown();
                         console.log(result.message);
                 } else {                       
                         alert('Ошибка');
