@@ -14,9 +14,16 @@ $(function(){
         $(window).on('scroll', function(){
                 
                 if($(window).scrollTop()) {
-                        $('.header__top.fix').addClass('fixed'); 
-                        $('.header__content.fix').addClass('active');
+                        if(media.matches) {
+                            $('.mobile-menu.fix').addClass('fixed');  
+                            $('.empty').addClass('active');  
+                        } else {
+                                $('.header__top.fix').addClass('fixed'); 
+                                $('.header__content.fix').addClass('active');
+                        }
                 } else {
+                        $('.empty').removeClass('active');
+                        $('.mobile-menu.fix').removeClass('fixed');  
                         $('.header__top.fix').removeClass('fixed');
                         $('.header__content.fix').removeClass('active');
                 }

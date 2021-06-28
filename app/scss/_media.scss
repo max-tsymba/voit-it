@@ -647,6 +647,26 @@
         margin-right: -36px;
     }
 
+    .empty{
+        order: -1;
+        width: 42px;
+        height: 42px;
+        background-color: transparent;
+        display: none;
+    }
+
+    .empty.active{
+        display: block;
+    }
+
+    .mobile-menu{
+        order: -1;
+    }
+
+    .mobile-menu.fixed{
+        padding: 0;
+    }
+
     .menu-hamburger{
         position: relative;
         background-color: #fff;
