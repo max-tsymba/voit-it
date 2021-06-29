@@ -207,16 +207,19 @@ function modal(popup, button, closeButton, displayModal) {
 
 }
 
+// Register Popup
 function registerModal(buttonID, modalClass, loginModal) {
 
         const openBtn = document.getElementById(buttonID),
               modal = document.querySelector(modalClass),
               login = document.querySelector(loginModal);
 
-        openBtn.addEventListener('click',() => {
-                login.style.display = 'none';
-                modal.style.display= 'block';
-        })
+        if(openBtn !== null) {
+                openBtn.addEventListener('click',() => {
+                        login.style.display = 'none';
+                        modal.style.display= 'block';
+                })
+        }
 }
 
 function removePopup(window, style, mediaMatch) {
@@ -272,7 +275,8 @@ function validatorForm(form, formReq, filePhp) {
     const contactForm = document.getElementById(form);
     const contactReq = document.querySelectorAll(formReq);
     const regRoad = document.querySelectorAll('.popup__reg-content');
-    contactForm.addEventListener('submit', formSend);
+
+    if(contactForm!== null) contactForm.addEventListener('submit', formSend);
 
     async function formSend(e) {
             e.preventDefault();
@@ -382,7 +386,7 @@ function register(formID, inputsReqClass) {
     const sendCodeButton = btns[0];
     const registerButton = btns[1];
 
-    form.addEventListener('submit', formSend);
+    if(form !== null) form.addEventListener('submit', formSend);
 
     async function formSend(e) {
             e.preventDefault();
@@ -418,14 +422,15 @@ function register(formID, inputsReqClass) {
 }
 
 function addTimer(btnID) {
-
         const btn = document.getElementById(btnID);
-        btn.addEventListener('click', () => {
-                $('.timer').hide();   
-                $('.js-timeout').show();
-                $('.js-timeout').text("1:00");
-                countdown();
-        });
+        if(btn !== null) {
+                btn.addEventListener('click', () => {
+                        $('.timer').hide();   
+                        $('.js-timeout').show();
+                        $('.js-timeout').text("1:00");
+                        countdown();
+                });
+        }
 
 }
 
