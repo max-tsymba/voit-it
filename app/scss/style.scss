@@ -1323,7 +1323,7 @@ textarea {
     top: 20px;
     left: 50%;
     transform: translate(-50%, 0);
-    background-color: #fff;
+    background: linear-gradient(132.29deg, #203269 17.99%, #2275AB 87.9%);
     border-radius: 23px;
     text-align: center;
     width: 1322px;
@@ -1345,11 +1345,12 @@ textarea {
 .popup__title{
     position: absolute;
     margin: 0;
-    color: #fff; 
+    color: #414141; 
     top: 60px;  
     left: 50%;
     transform: translateX(-50%);
-    font-weight: 400;
+    font-weight: 700;
+    text-transform: uppercase;
     z-index: 10;
 }
 
@@ -1358,6 +1359,7 @@ textarea {
     margin-top: 50px;
     min-height: 125px;
     font-size: 24px;
+    color: #fff;
 }
 
 .popup__group{
@@ -1365,14 +1367,14 @@ textarea {
     padding-bottom: 54px;
 
     &-btn{
-        color: #2C7EB4;
+        color: #fff;
         font-size: 18px;
         text-transform: uppercase;
         border: none;
-        background: #fff;
+        background: linear-gradient(130.29deg, #203269 10.99%, #2275AB 100.9%);
         border-radius: 23px;
         cursor: pointer;
-        box-shadow: 0px 15px 45px 3px rgba(0, 0, 0, 0.08);
+        box-shadow: 0px 15px 45px 3px rgba(0, 0, 0, 0.2);
         width: 218px;
         height: 62px;
     }
@@ -1679,6 +1681,15 @@ textarea {
 
     &::before{
         transform: rotate(-45deg);
+    }
+}
+
+.test-close{
+    border: 1px solid #2275AB;
+
+    &::after,
+    &::before{
+        background-color: #2275AB;
     }
 }
 
