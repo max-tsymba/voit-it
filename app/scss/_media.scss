@@ -587,6 +587,11 @@
 
 @media (max-width: 768px) {
     // HEADER
+
+    .header{
+        padding-top: 0;
+    }
+    
     .menu {
         display: block;
         position: fixed;
