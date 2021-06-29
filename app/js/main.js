@@ -7,6 +7,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
         register('register-form', '._req');
         addTimer('timer');
         registerModal('register-btn','.popup__reg', '.popup__login');
+        mobileMenu('.menu-hamburger', '.menu', '.menu__link');
         // validatorForm('first-page', '.form-reg-mail', "../sendCode.php");
 });
 
@@ -56,6 +57,41 @@ $(function(){
         });
 
 });
+
+// Mobile Menu
+function mobileMenu(buttonClass, menuClass, menuLinksClass) {
+
+        const btn = document.querySelector(buttonClass),
+              menu = document.querySelector(menuClass),
+              links = document.querySelectorAll(menuLinksClass);
+
+        let isOpen = true;
+
+        btn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                if(isOpen) {
+                        btn.classList.add('active');
+                        menu.classList.add('active');
+                        document.querySelector('body').style.overflowY = 'hidden';
+                        isOpen = false;
+                } else {
+                        btn.classList.remove('active');
+                        menu.classList.remove('active');
+                        document.querySelector('body').style.overflowY = 'scroll';
+                        isOpen = true;
+                }
+        })
+
+        links.forEach((link) => {
+                link.addEventListener('click', () => {
+                        btn.classList.remove('active');
+                        menu.classList.remove('active');
+                        document.querySelector('body').style.overflowY = 'scroll';
+                        isOpen = true;  
+                });
+        })
+}
 
 // Accordion About Menu
 function accrodionMenu() {
