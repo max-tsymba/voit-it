@@ -96,20 +96,20 @@
                   </button>
                 </div>
 
-                <form class="popup__login-content" action="#" novalidate>
+                <form class="popup__login-content" id="login-form" action="#" novalidate>
 
                   <div class="form__group reg__group">
-                    <input class="form-control form-reg" type="text" placeholder="Email" required>
+                    <input class="form-control _login-email _login-req" type="email" placeholder="Email" required>
                   </div>
                   <div class="form__group reg__group">
-                    <input class="form-control form-reg" type="text" placeholder="Пароль" required>
+                    <input class="form-control _login-password _login-req" type="text" placeholder="Пароль" required>
                   </div>
 
                   <div class="popup__login-btn">
                       <button class="login-btn" id="register-btn" type="button">Зарегистрируйтесь</button>, если у вас еще нет учетной записи.
                   </div>
 
-                  <button class="popup__reg-btn but-init log-btn" type="submit">Авторизоваться</button>
+                  <button class="popup__reg-btn but-init log-btn" type="submit" value="Reset">Авторизоваться</button>
 
                 </form>
 

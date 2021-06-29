@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
         addTimer('timer');
         registerModal('register-btn','.popup__reg', '.popup__login');
         mobileMenu('.menu-hamburger', '.menu', '.menu__link');
+        login('login-form', '._login-req', 'any.php');
         // validatorForm('first-page', '.form-reg-mail', "../sendCode.php");
 });
 
@@ -91,6 +92,40 @@ function mobileMenu(buttonClass, menuClass, menuLinksClass) {
                         isOpen = true;  
                 });
         })
+}
+
+// Login
+function login(formID, reqsInputs, phpFile) {
+
+        const form = document.getElementById(formID),
+              inputs = document.querySelectorAll(reqsInputs);
+
+        if(form !== null) form.addEventListener('submit', formSend);
+
+        async function formSend(e) {
+                e.preventDefault();
+
+                let errorCount = validator(form, inputs);
+
+                if(errorCount === 0) {
+                        let dataForm = new FormData();
+                        dataForm.set('email', inputs[0].value);
+                        dataForm.set('password', inputs[1].value);
+                       
+                        let response = await fetch(phpFile, {
+                                method: 'POST',
+                                body: dataForm
+                        });
+    
+                        if(response.ok) {
+                                let result = await response.json();
+                                console.log(result.message);
+                                Reset(dataForm);
+                        } else {                       
+                                alert('Ошибка');
+                        }
+                }
+        }
 }
 
 // Accordion About Menu
@@ -232,6 +267,13 @@ function removePopup(window, style, mediaMatch) {
         const loginForm = popupWindow.children[0].children[1];
         const registerForm = popupWindow.children[1].children[1];
         const codeInput = document.querySelector('._code');
+        const inputs = document.querySelectorAll('input');
+
+              inputs.forEach((input) => {
+                      if(input.classList.contains('_error')) {
+                              input.classList.remove('_error');
+                      }
+              })
 
               popupWindow.classList.remove('active');
               regModal.style.display = 'none';
@@ -338,7 +380,7 @@ function validator(form, req) {
                         errorCount++;
                 }
 
-            } else if(input.classList.contains('_email')){
+            } else if(input.classList.contains('_email') || input.classList.contains('_login-email')){
                 if(emailTest(input)) {
                         formAddError(input);
                         errorCount++;
