@@ -1063,6 +1063,35 @@
         text-align: left;
     }
 
+     // POPUP
+    .modal{
+        width: 400px;
+    }
+
+    .popup__reg-btn{
+        width: 200px;
+        height: 50px;
+        font-size: 14px;
+    }
+
+    .popup__login-btn{
+        font-size: 12px;
+    }
+
+    .register__rect{
+        width: 403px;
+        margin-top: 0;
+        margin-left: -1px;
+    }
+
+    .modal-top{
+        height: 150px;
+    }
+
+    .popup__reg-title{
+        margin-top: 55px;
+    }
+
 
 }
 
@@ -1399,6 +1428,42 @@
     .price__inner{
         padding: 0 30px;
         padding-top: 550px;
+    }
+
+         // POPUP
+    .modal{
+        width: 300px;
+    }
+
+    .popup__reg-btn{
+        width: 200px;
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .popup__login-btn{
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .register__rect{
+        width: 303px;
+        margin-top: 0;
+        margin-left: -1px;
+    }
+
+    .modal-top{
+        height: 100px;
+    }
+
+    .popup__reg-title{
+        margin-top: 35px;
+        font-size: 18px;
+    }
+
+    .popup__login-content{
+        padding-bottom: 25px;
     }
     
 }
