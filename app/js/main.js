@@ -213,14 +213,8 @@ function modal(popup, button, closeButton, displayModal) {
                                 popupWindow.classList.add('active');
                                 displayPopup.style.display = 'block';
 
-                                if(styleHeader.minHeight === '0px') {
-                                        document.body.style.overflowY = 'hidden';
-                                        document.body.style.marginRight = `${scroll}px`;
-                                }
-        
-                                if(media.matches) {
-                                        document.body.style.position = 'fixed';
-                                }
+                                document.body.style.overflowY = 'hidden';
+                                document.body.style.marginRight = `${scroll}px`;
 
                                
                         });

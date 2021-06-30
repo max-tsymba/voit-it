@@ -18,6 +18,12 @@
     }
 }
 
+@media (min-width: 1440px) {
+    .fixed{
+        margin: 0 auto;
+    }
+}
+
 @media (max-width: 1700px) {
 
     // HEADER
@@ -723,11 +729,13 @@
 
     .mobile-menu{
         order: -1;
+        margin: 0;
+        border-radius: 50%;
     }
 
     .mobile-menu.fixed{
         padding: 0;
-        z-index: 999;
+        z-index: 800;
     }
 
     .menu-hamburger{
