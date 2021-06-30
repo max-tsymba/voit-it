@@ -1336,7 +1336,7 @@ textarea {
     background: linear-gradient(132.29deg, #203269 17.99%, #2275AB 87.9%);
     border-radius: 23px;
     text-align: center;
-    width: 1322px;
+    width: 1200px;
     display: none;
 }
 
@@ -1346,8 +1346,9 @@ textarea {
 
     img{
         position: absolute;
+        width: 1255px;
         top: -50px;
-        left: -35px;
+        left: -29px;
         z-index: 2;
     }
 }
@@ -1374,7 +1375,8 @@ textarea {
 
 .popup__group{
     margin-top: 15px;
-    padding-bottom: 54px;
+    padding-bottom: 25px;
+    padding-top: 25px;
 
     &-btn{
         color: #fff;
