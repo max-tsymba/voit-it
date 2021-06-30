@@ -204,7 +204,7 @@ function modal(popup, button, closeButton, displayModal) {
         const scroll = calcScroll();
         const media = window.matchMedia('(max-width: 769px)');
 
-        if(popupBtn != null) {
+        if(popupBtn != null && popupWindow !== null) {
 
                 [].forEach.call(popupBtn, (btn)=>{
 
@@ -366,7 +366,9 @@ function validator(form, req) {
             const input = req[i];
 
             formRemoveError(input);
-            checkbox.classList.remove('_error');
+            
+            if(checkbox !== null)
+                checkbox.classList.remove('_error');
 
             if(input.classList.contains('_name') || input.classList.contains('_surname')) {
                 if(nameTest(input)) {
