@@ -357,6 +357,7 @@ html{
         font-size: 19px;
         line-height: 24px;
         padding-left: 43px;
+        max-width: 420px;
     }
 
     &-desc{
@@ -434,7 +435,7 @@ html{
 
 .accordion__item.active .accordion__item-desc{
     opacity: 1;
-    max-height: 394px;
+    max-height: 550px;
     padding: 101px 60px 46px 44px;
     transition: all .5s linear;
 }
@@ -546,6 +547,7 @@ html{
         line-height: 25px;
         text-align: center;
         color: #535353;
+        padding-bottom: 10px;
     
     }
     
@@ -581,7 +583,7 @@ html{
 }
 
 .programm__inner{
-    padding-left: 40px;
+    padding-left: 44px;
     position: relative;
 }
 
@@ -729,6 +731,7 @@ html{
         font-size: 16px;
         padding: 32px 72px;
         cursor: pointer;
+        z-index: 100;
     }
 }
 
@@ -753,7 +756,7 @@ html{
 }
 
 .price__inner{
-    padding-left: 40px;
+    padding-left: 44px;
 }
 
 .price__cards{
@@ -961,10 +964,11 @@ html{
     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
     display: inline-block;
-    padding: 85px 50px 45px 50px;
+    padding: 85px 45px 10px 45px;
     border-radius: 23px;
-    margin: 0 30px;
+    margin: 0 32px;
     margin-top: 40px;
+    min-height: 280px;
 
     &-name{
         margin: 0;
@@ -973,7 +977,7 @@ html{
         color: #535353;
         padding-bottom: 14px;
         padding-top: 44px;
-        max-width: 330px;
+        max-width: 350px;
     }
 
     &-desc{
@@ -1039,6 +1043,11 @@ html{
     height: 500px;
 }
 
+.slick-track{
+    min-height: 450px;
+    padding-bottom: 10px;
+}
+
 .feedback__slider button {
     position: absolute;
     z-index: 2;
@@ -1067,7 +1076,7 @@ html{
     min-height: 1140px;
 
     &__inner{
-        padding-left: 40px;
+        padding-left: 44px;
     }
 }
 
