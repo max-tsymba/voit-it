@@ -1,3 +1,9 @@
+@media(min-width: 1900px) {
+    .fullback{
+        background-size: cover;
+    }
+}
+
 @media (min-width: 1700px) {
     .for__items-top .for__item{
         &:nth-child(1) {
@@ -894,7 +900,7 @@
 
      // FEEDBACK
      .feedback__block{
-        padding: 85px 15px 45px 15px;
+        padding: 85px 65px 45px 65px;
     }
 }
 
@@ -1576,6 +1582,12 @@
     .about__left{
         padding-left: 15px;
         margin-right: 0;
+    }
+
+    .intro__text{
+        button {
+            color: #2C7EB4;
+        }
     }
 
 
