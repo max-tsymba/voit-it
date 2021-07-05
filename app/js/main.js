@@ -204,6 +204,7 @@ function modal(popup, button, closeButton, displayModal) {
               displayPopup = document.querySelector(displayModal);
 
         const header = document.querySelector('article');
+        const header_top = document.querySelector('.header__top');
         const styleHeader = getComputedStyle(header);
         const scroll = calcScroll();
         const media = window.matchMedia('(max-width: 769px)');
