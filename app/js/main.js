@@ -3,13 +3,12 @@ window.addEventListener('DOMContentLoaded', ()=>{
         accrodionMenu();
         programmMenu();
         modal('.overlay__popup','popup-btn', '.popup__close','.popup__login');
-        validatorForm('contact-form', '._req', "../sendmail.php");
+        validatorForm('contact-form', '._req', "/contact/send");
         register('register-form', '._req');
         addTimer('timer');
         registerModal('register-btn','.popup__reg', '.popup__login');
         mobileMenu('.menu-hamburger', '.menu', '.menu__link');
         login('login-form', '._login-req', 'any.php');
-        // validatorForm('first-page', '.form-reg-mail', "../sendCode.php");
 });
 
 let token = 0;
