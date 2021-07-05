@@ -136,9 +136,7 @@ function accrodionMenu() {
         for (let i=0; i<items.length; i++) {
                 items[i].addEventListener('click', ()=>{
 
-                        if(items[i].classList.contains('active')) {
-                                items[i].classList.remove('active');
-                        } else {
+                        if(!(items[i].classList.contains('active'))) {
                                 let activeNode = null;
                                 try{
                                         activeNode = document.querySelector('.about__accordion .active');
