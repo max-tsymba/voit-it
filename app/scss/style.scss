@@ -44,6 +44,10 @@ html{
 
 /* ----- HEADER ----- */
 .header{
+    padding-top: 31px;
+}
+
+.home{
     min-height: 1082px;
     background-repeat: no-repeat;
     background-position: top center;
@@ -280,10 +284,10 @@ html{
 /* ----- ABOUT ----- */
 .about{
     position: relative;
-    min-height: 1294px;
+    min-height: 1300px;
     background-repeat: no-repeat;
     background-position: top center;
-    margin-top: -95px;
+    margin-top: -120px;
 
     &__inner{
         display: flex;
