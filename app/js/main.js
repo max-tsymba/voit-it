@@ -29,13 +29,15 @@ $(function(){
                             $('.empty').addClass('active');  
                         } else {
                                 $('.header__top.fix').addClass('fixed'); 
-                                $('.header__content.fix').addClass('active');
+                                $('.fullback.fix').addClass('active');
+                                $('.article-offer.fix').addClass('active');
                         }
                 } else {
                         $('.empty').removeClass('active');
                         $('.mobile-menu.fix').removeClass('fixed');  
                         $('.header__top.fix').removeClass('fixed');
-                        $('.header__content.fix').removeClass('active');
+                        $('.fullback.fix').removeClass('active');
+                        $('.article-offer.fix').removeClass('active');
                 }
         });
         

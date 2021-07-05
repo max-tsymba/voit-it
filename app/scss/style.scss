@@ -22,7 +22,12 @@ html{
 .fullback,
 .article-offer{
     margin-top: -151px;
-    padding-top: 150px;
+    padding-top: 65px;
+}
+
+.fullback.active,
+.article-offer.active{
+    margin-top: -30px;
 }
 
 .container-main{
@@ -156,7 +161,7 @@ html{
 }
 
 .header__content.active{
-    padding-top: 180px;
+    // padding-top: 300px;
 }
 
 .content__left{
@@ -294,7 +299,7 @@ html{
     min-height: 1300px;
     background-repeat: no-repeat;
     background-position: top center;
-    margin-top: -120px;
+    margin-top: -150px;
 
     &__inner{
         display: flex;
