@@ -12,6 +12,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
         // validatorForm('first-page', '.form-reg-mail', "../sendCode.php");
 });
 
+let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
 $(function(){
 
         const media = window.matchMedia('(max-width: 768px)');
@@ -111,7 +113,12 @@ function login(formID, reqsInputs, phpFile) {
                        
                         let response = await fetch(phpFile, {
                                 method: 'POST',
-                                body: dataForm
+                                body: dataForm,
+                                headers: new Headers({
+                                        'Content-Type': 'application/json',
+                                        'Accept': 'application/json',
+                                        'X-CSRF-TOKEN': token
+                                })
                         });
     
                         if(response.ok) {
@@ -329,7 +336,12 @@ function validatorForm(form, formReq, filePhp) {
 
                     let response = await fetch(filePhp, {
                             method: 'POST',
-                            body: formData
+                            body: formData,
+                            headers: new Headers({
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': token
+                        })
                     });
 
                     if(response.ok) {
@@ -354,7 +366,6 @@ function Reset(form) {
         form.reset();
 }
 
-
 // Register Function
 function register(formID, inputsReqClass) {
 
@@ -375,7 +386,12 @@ function register(formID, inputsReqClass) {
 
                 let response = await fetch('sendCode.php', {
                         method: 'POST',
-                        body: dataForm
+                        body: dataForm,
+                        headers: new Headers({
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': token
+                        })
                 });
 
                 if(response.ok) {
