@@ -346,8 +346,8 @@ style="background-image: url(./img/about-bg.jpg);"
                     <div class="logo">
                       <a class="logo__link" href="./index.html">
                         <picture class="logo__picture">
-                          <source srcset="./img/лого-2.png" media="(max-width: 768px)">
-                          <img src="./img/лого1.png" alt="logo">
+                          <source srcset="./img/logo-2.png" media="(max-width: 768px)">
+                          <img src="./img/logo-1.png" alt="logo">
                         </picture>
                       </a>
                     </div>

@@ -13,264 +13,268 @@
 <body>
 
     <article class="article-offer" id="article-bg">
-        <header class="header" id="header-bg">
+        <header class="header" id="home">
     
             <div class="container">
-                <div class="header__top">
-                    <div class="header__group">
-                        <div class="logo">
-                          <a class="logo__link" href="./index.html">
-                            <picture class="logo__picture">
-                              <source srcset="./img/лого-2.png" media="(max-width: 768px)">
-                              <img src="./img/лого1.png" alt="logo">
-                            </picture>
-                          </a>
-                        </div>
-                        <a href="#" class="menu-hamburger" style="display: none;">
-                          <div></div>
-                        </a>
-                        <nav class="menu">
-                            <ul class="menu__list">
-                              <li class="menu__item"><a class="menu__link" href="./index.html#home">Главная</a></li>
-                              <li class="menu__item"><a class="menu__link" href="./index.html#about">О нас</a></li>
-                              <li class="menu__item"><a class="menu__link" href="./index.html#programm">Программа</a></li>
-                              <li class="menu__item"><a class="menu__link" href="./index.html#price">Цена</a></li>
-                              <li class="menu__item"><a class="menu__link" href="./index.html#feedback">Отзывы</a></li>
-                              <li class="menu__item"><a class="menu__link" href="./index.html#contact">Контакты</a></li>
-                            </ul>
-                        </nav>
               
-                        <div class="left-side">
-                          <div class="phone">
-                            <a class="phone__link" href="tel:+380951234567">+38 095 123 45 67</a>
-                          </div>
-                
-                          <div class="account">
-                            <div class="account__link">Мой аккаунт</div>
-                            <a class="account__btn" id="login" href="" style="display: block;">
-                              <img class="account__img" src="./img/user.svg" alt="user">
-                            </a>
-                            <a class="account__btn" id="logout" href="index.html" style="display: none;">
-                              <img class="account__img" src="./img/logout.svg" alt="user">
-                            </a>
-                          </div>
-                        </div>
+              <div class="header__top fix">
+  
+                <div class="header__group">
+                  <div class="logo">
+                    <a class="logo__link" href="./index.html">
+                      <picture class="logo__picture">
+                        <source srcset="./img/logo-2.png" media="(max-width: 768px)">
+                        <img src="./img/logo-1.png" alt="logo">
+                      </picture>
+                    </a>
+                  </div>
+                  <div class="mobile-menu fix">
+                    <a href="#" class="menu-hamburger">
+                      <div></div>
+                    </a>
+                  </div>
+                  <div class="empty"></div>
+                  <nav class="menu">
+                      <ul class="menu__list">
+                        <li class="menu__item"><a class="menu__link" href="./index.html#home">Главная</a></li>
+                        <li class="menu__item"><a class="menu__link" href="./index.html#about">О нас</a></li>
+                        <li class="menu__item"><a class="menu__link" href="./index.html#programm">Программа</a></li>
+                        <li class="menu__item"><a class="menu__link" href="./index.html#price">Цена</a></li>
+                        <li class="menu__item"><a class="menu__link" href="./index.html#feedback">Отзывы</a></li>
+                        <li class="menu__item"><a class="menu__link" href="./index.html#contact">Контакты</a></li>
+                      </ul>
+                  </nav>
+        
+                  <div class="left-side">
+                    <div class="phone">
+                      <a class="phone__link" href="tel:+380951234567">+38 095 123 45 67</a>
+                    </div>
           
-                      </div>
-                </div>
-    
-                <div class="intro__content">
-    
-                  <h1 class="intro__title">Мои заказы</h1>
-
-                  <div class="intro__empty">
-                    <div class="intro__box">
-                      <img class="empty-box" src="./img/empty-box.png" alt="">
-                      <div class="intro__subtitle">Тут пусто</div>
-                    </div>
-                    
-                    <div class="intro__text">
-                      <button class="intro__text-login popup-btn" href="./cabinet.html">Авторизируйтесь</button>чтобы просмотреть все ваши заказы
-                    </div>
-
-                    <div class="overlay__popup">
-                      <div class="popup__login modal">
-        
-                        <div class="popup__login-top modal-top">
-                          <img class="form__rect register__rect" src="./img/login-rect.svg" alt="">
-                          <h1 class="popup__reg-title">Авторизация</h1>
-                          <button class="popup__close" value="Reset">
-                          </button>
-                        </div>
-        
-                        <form class="popup__login-content" id="login-form" action="#" novalidate>
-        
-                          <div class="form__group reg__group">
-                            <input class="form-control _login-email _login-req" type="email" placeholder="Email" required>
-                          </div>
-                          <div class="form__group reg__group">
-                            <input class="form-control _login-password _login-req" type="text" placeholder="Пароль" required>
-                          </div>
-        
-                          <div class="popup__login-btn">
-                              <button class="login-btn" id="register-btn" type="button">Зарегистрируйтесь,</button> если у вас еще нет учетной записи.
-                          </div>
-        
-                          <button class="popup__reg-btn but-init log-btn" type="submit" value="Reset">Авторизоваться</button>
-        
-                        </form>
-        
-                      </div>
-        
-                      <div class="popup__reg modal" style="display: none;">
-        
-                        <div class="popup__reg-top modal-top">
-                          <img class="form__rect register__rect" src="./img/login-rect.svg" alt="">
-                          <h1 class="popup__reg-title">Регистрация</h1>
-                          <button class="popup__close" value="Reset">
-                          </button>
-                        </div>
-        
-                        <form class="popup__reg-content" id="register-form" action="#" novalidate>
-                          
-                          <div class="form__group reg__group">
-                            <input class="form-control _req _login-mail" type="email" name="register-mail" placeholder="Email" autocomplete="off" required>
-                          </div>
-        
-                          <div class="form__group reg__group">
-                            <input class="form-control _req _code" type="text" name="register-code" placeholder="Пароль" style="display: none;" required>
-                          </div>
-        
-                          <span class="js-timeout" style="display: none;">1:00</span>
-                          <button class="timer" type="submit" id="timer" style="display: none;">Отправить код повторно</button>
-        
-                          <button class="popup__reg-btn but-init reg-btn register" type="submit" value="Reset" style="display: block;">Отправить код</button>
-                          <button class="popup__reg-btn but-init reg-btn register" type="submit" value="Reset" style="display: none;">Зарегистрироваться</button>
-                        </form>
-        
-                      </div>
-        
+                    <div class="account">
+                      <div class="account__link">Мой аккаунт</div>
+                      <a class="account__btn" href="./cabinet.html">
+                        <img class="account__img" src="./img/user.svg" alt="user">
+                      </a>
                     </div>
                   </div>
-
-                    <div class="programm__inner cabinet__inner" style="display: none;">
     
-                      <div class="programm__menu cabinet-menu">
-    
-                          <div class="programm__menu-item cabinet__item active">
-    
-                            <div class="programm__menu-line cabinet-line">
-                              <div class="programm__menu-title"><span>Курс 1</span></div>
-                              <button class="programm__menu-btn">
-                                  <img src="./img/arrow-btn.svg" alt="arrow">
-                              </button>
-                            </div>
-    
-                            <div class="programm__menu-block cabinet__menu">
-                                <div class="programm__subblock cabinet__subblock">
-                                    <div class="programm__subblock-sup">
-                                      КУРС #1
-                                    </div>
-                                    
-                                    <div class="cabinet__info-box">
-                                        <div class="programm__subblock-desc cabinet-desc">
-                                            Видеокурс <span class="course-no">1</span>: <span class="cabinet__name">Вход</span>
-                                        </div>
-                                        <a class="but-init cabinet__link" href="#">Смотреть</a>
-                                    </div>
-
-                                    <div class="cabinet__info-box">
-                                        <div class="programm__subblock-desc cabinet-desc">
-                                            Видеокурс <span class="course-no">2</span>: <span class="cabinet__name">Профессии</span>
-                                        </div>
-                                        <a class="but-init cabinet__link" href="#">Смотреть</a>
-                                    </div>
-
-                                    <div class="cabinet__info-box">
-                                        <div class="programm__subblock-desc cabinet-desc">
-                                            <span class="course-file">Шаблон резюме</span>
-                                        </div>
-                                        <button class="but-init cabinet__link download-btn">Скачать</button>
-                                    </div>
-
-                                </div> 
-                            </div>
-    
-                          </div>
-    
-                          <div class="programm__menu-item">
-    
-                            <div class="programm__menu-line cabinet-line">
-                              <div class="programm__menu-title"><span>Курс 2</span></div>
-                              <button class="programm__menu-btn">
-                                  <img src="./img/arrow-btn.svg" alt="arrow">
-                              </button>
-                            </div>
-    
-                            <div class="programm__menu-block">
-                                <div class="programm__subblock cabinet__subblock">
-                                    <div class="programm__subblock-sup">
-                                      КУРС #2
-                                    </div>
-                                    
-                                    <div class="cabinet__info-box">
-                                        <div class="programm__subblock-desc cabinet-desc">
-                                            Видеокурс <span class="course-no">1</span>: <span class="cabinet__name">Вход</span>
-                                        </div>
-                                        <a class="but-init cabinet__link" href="#">Смотреть</a>
-                                    </div>
-
-                                    <div class="cabinet__info-box">
-                                        <div class="programm__subblock-desc cabinet-desc">
-                                            Видеокурс <span class="course-no">2</span>: <span class="cabinet__name">Профессии</span>
-                                        </div>
-                                        <a class="but-init cabinet__link" href="#">Смотреть</a>
-                                    </div>
-
-                                    <div class="cabinet__info-box">
-                                        <div class="programm__subblock-desc cabinet-desc">
-                                            <span class="course-file">Шаблон резюме</span>
-                                        </div>
-                                        <button class="but-init cabinet__link download-btn">Скачать</button>
-                                    </div>
-
-                                </div> 
-                            </div>
-    
-                          </div>  
-                          
-                          <div class="programm__menu-item">
-    
-                            <div class="programm__menu-line cabinet-line">
-                              <div class="programm__menu-title"><span>Курс 3</span></div>
-                              <button class="programm__menu-btn">
-                                  <img src="./img/arrow-btn.svg" alt="arrow">
-                              </button>
-                            </div>
-    
-                            <div class="programm__menu-block">
-                                <div class="programm__subblock cabinet__subblock">
-                                    <div class="programm__subblock-sup">
-                                      КУРС #3
-                                    </div>
-                                    
-                                    <div class="cabinet__info-box">
-                                        <div class="programm__subblock-desc cabinet-desc">
-                                            Видеокурс <span class="course-no">1</span>: <span class="cabinet__name">Вход</span>
-                                        </div>
-                                        <a class="but-init cabinet__link" href="#">Смотреть</a>
-                                    </div>
-
-                                    <div class="cabinet__info-box">
-                                        <div class="programm__subblock-desc cabinet-desc">
-                                            Видеокурс <span class="course-no">2</span>: <span class="cabinet__name">Профессии</span>
-                                        </div>
-                                        <a class="but-init cabinet__link" href="#">Смотреть</a>
-                                    </div>
-
-                                    <div class="cabinet__info-box">
-                                        <div class="programm__subblock-desc cabinet-desc">
-                                            <span class="course-file">Шаблон резюме</span>
-                                        </div>
-                                        <button class="but-init cabinet__link download-btn">Скачать</button>
-                                    </div>
-
-                                </div> 
-                            </div>
-    
-                          </div>  
-    
-                      </div>
-    
-                    </div>
-             
-                  
                 </div>
+    
+              </div>
+
             </div>
-    
-            
-    
+  
         </header>
+
+        <section class="cabinet">
+          <div class="intro__content">
+    
+            <h1 class="intro__title">Мои заказы</h1>
+
+            <div class="intro__empty">
+              <div class="intro__box">
+                <img class="empty-box" src="./img/empty-box.png" alt="">
+                <div class="intro__subtitle">Тут пусто</div>
+              </div>
+              
+              <div class="intro__text">
+                <button class="intro__text-login popup-btn" href="./cabinet.html">Авторизируйтесь</button>чтобы просмотреть все ваши заказы
+              </div>
+
+              <div class="overlay__popup">
+                <div class="popup__login modal">
+  
+                  <div class="popup__login-top modal-top">
+                    <img class="form__rect register__rect" src="./img/login-rect.svg" alt="">
+                    <h1 class="popup__reg-title">Авторизация</h1>
+                    <button class="popup__close" value="Reset">
+                    </button>
+                  </div>
+  
+                  <form class="popup__login-content" id="login-form" action="#" novalidate>
+  
+                    <div class="form__group reg__group">
+                      <input class="form-control _login-email _login-req" type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form__group reg__group">
+                      <input class="form-control _login-password _login-req" type="text" placeholder="Пароль" required>
+                    </div>
+  
+                    <div class="popup__login-btn">
+                        <button class="login-btn" id="register-btn" type="button">Зарегистрируйтесь,</button> если у вас еще нет учетной записи.
+                    </div>
+  
+                    <button class="popup__reg-btn but-init log-btn" type="submit" value="Reset">Авторизоваться</button>
+  
+                  </form>
+  
+                </div>
+  
+                <div class="popup__reg modal" style="display: none;">
+  
+                  <div class="popup__reg-top modal-top">
+                    <img class="form__rect register__rect" src="./img/login-rect.svg" alt="">
+                    <h1 class="popup__reg-title">Регистрация</h1>
+                    <button class="popup__close" value="Reset">
+                    </button>
+                  </div>
+  
+                  <form class="popup__reg-content" id="register-form" action="#" novalidate>
+                    
+                    <div class="form__group reg__group">
+                      <input class="form-control _req _login-mail" type="email" name="register-mail" placeholder="Email" autocomplete="off" required>
+                    </div>
+  
+                    <div class="form__group reg__group">
+                      <input class="form-control _req _code" type="text" name="register-code" placeholder="Пароль" style="display: none;" required>
+                    </div>
+  
+                    <span class="js-timeout" style="display: none;">1:00</span>
+                    <button class="timer" type="submit" id="timer" style="display: none;">Отправить код повторно</button>
+  
+                    <button class="popup__reg-btn but-init reg-btn register" type="submit" value="Reset" style="display: block;">Отправить код</button>
+                    <button class="popup__reg-btn but-init reg-btn register" type="submit" value="Reset" style="display: none;">Зарегистрироваться</button>
+                  </form>
+  
+                </div>
+  
+              </div>
+            </div>
+
+              <div class="programm__inner cabinet__inner" style="display: none;">
+
+                <div class="programm__menu cabinet-menu">
+
+                    <div class="programm__menu-item cabinet__item active">
+
+                      <div class="programm__menu-line cabinet-line">
+                        <div class="programm__menu-title"><span>Курс 1</span></div>
+                        <button class="programm__menu-btn">
+                            <img src="./img/arrow-btn.svg" alt="arrow">
+                        </button>
+                      </div>
+
+                      <div class="programm__menu-block cabinet__menu">
+                          <div class="programm__subblock cabinet__subblock">
+                              <div class="programm__subblock-sup">
+                                КУРС #1
+                              </div>
+                              
+                              <div class="cabinet__info-box">
+                                  <div class="programm__subblock-desc cabinet-desc">
+                                      Видеокурс <span class="course-no">1</span>: <span class="cabinet__name">Вход</span>
+                                  </div>
+                                  <a class="but-init cabinet__link" href="#">Смотреть</a>
+                              </div>
+
+                              <div class="cabinet__info-box">
+                                  <div class="programm__subblock-desc cabinet-desc">
+                                      Видеокурс <span class="course-no">2</span>: <span class="cabinet__name">Профессии</span>
+                                  </div>
+                                  <a class="but-init cabinet__link" href="#">Смотреть</a>
+                              </div>
+
+                              <div class="cabinet__info-box">
+                                  <div class="programm__subblock-desc cabinet-desc">
+                                      <span class="course-file">Шаблон резюме</span>
+                                  </div>
+                                  <button class="but-init cabinet__link download-btn">Скачать</button>
+                              </div>
+
+                          </div> 
+                      </div>
+
+                    </div>
+
+                    <div class="programm__menu-item">
+
+                      <div class="programm__menu-line cabinet-line">
+                        <div class="programm__menu-title"><span>Курс 2</span></div>
+                        <button class="programm__menu-btn">
+                            <img src="./img/arrow-btn.svg" alt="arrow">
+                        </button>
+                      </div>
+
+                      <div class="programm__menu-block">
+                          <div class="programm__subblock cabinet__subblock">
+                              <div class="programm__subblock-sup">
+                                КУРС #2
+                              </div>
+                              
+                              <div class="cabinet__info-box">
+                                  <div class="programm__subblock-desc cabinet-desc">
+                                      Видеокурс <span class="course-no">1</span>: <span class="cabinet__name">Вход</span>
+                                  </div>
+                                  <a class="but-init cabinet__link" href="#">Смотреть</a>
+                              </div>
+
+                              <div class="cabinet__info-box">
+                                  <div class="programm__subblock-desc cabinet-desc">
+                                      Видеокурс <span class="course-no">2</span>: <span class="cabinet__name">Профессии</span>
+                                  </div>
+                                  <a class="but-init cabinet__link" href="#">Смотреть</a>
+                              </div>
+
+                              <div class="cabinet__info-box">
+                                  <div class="programm__subblock-desc cabinet-desc">
+                                      <span class="course-file">Шаблон резюме</span>
+                                  </div>
+                                  <button class="but-init cabinet__link download-btn">Скачать</button>
+                              </div>
+
+                          </div> 
+                      </div>
+
+                    </div>  
+                    
+                    <div class="programm__menu-item">
+
+                      <div class="programm__menu-line cabinet-line">
+                        <div class="programm__menu-title"><span>Курс 3</span></div>
+                        <button class="programm__menu-btn">
+                            <img src="./img/arrow-btn.svg" alt="arrow">
+                        </button>
+                      </div>
+
+                      <div class="programm__menu-block">
+                          <div class="programm__subblock cabinet__subblock">
+                              <div class="programm__subblock-sup">
+                                КУРС #3
+                              </div>
+                              
+                              <div class="cabinet__info-box">
+                                  <div class="programm__subblock-desc cabinet-desc">
+                                      Видеокурс <span class="course-no">1</span>: <span class="cabinet__name">Вход</span>
+                                  </div>
+                                  <a class="but-init cabinet__link" href="#">Смотреть</a>
+                              </div>
+
+                              <div class="cabinet__info-box">
+                                  <div class="programm__subblock-desc cabinet-desc">
+                                      Видеокурс <span class="course-no">2</span>: <span class="cabinet__name">Профессии</span>
+                                  </div>
+                                  <a class="but-init cabinet__link" href="#">Смотреть</a>
+                              </div>
+
+                              <div class="cabinet__info-box">
+                                  <div class="programm__subblock-desc cabinet-desc">
+                                      <span class="course-file">Шаблон резюме</span>
+                                  </div>
+                                  <button class="but-init cabinet__link download-btn">Скачать</button>
+                              </div>
+
+                          </div> 
+                      </div>
+
+                    </div>  
+
+                </div>
+
+              </div>
+       
+            
+          </div>
+        </section>
       </article>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
