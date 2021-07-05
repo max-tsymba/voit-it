@@ -105,9 +105,6 @@ function login(formID, reqsInputs, phpFile) {
         async function formSend(e) {
                 e.preventDefault();
 
-                let errorCount = validator(form, inputs);
-
-                if(errorCount === 0) {
                         let dataForm = new FormData();
                         dataForm.set('email', inputs[0].value);
                         dataForm.set('password', inputs[1].value);
@@ -124,7 +121,6 @@ function login(formID, reqsInputs, phpFile) {
                         } else {                       
                                 alert('Ошибка');
                         }
-                }
         }
 }
 
@@ -322,16 +318,13 @@ function validatorForm(form, formReq, filePhp) {
     async function formSend(e) {
             e.preventDefault();
 
-            let errorCount = validator(contactForm, contactReq);
-
-            if(errorCount === 0 && contactForm.id !== 'contact-form') {
+            if(contactForm.id !== 'contact-form') {
                 regRoad[0].style.display = 'none';
                 regRoad[1].style.display = 'block'; 
             } 
 
             let formData = new FormData(contactForm);
             
-            if(errorCount === 0) {
                     contactForm.classList.add('_sending');
 
                     let response = await fetch(filePhp, {
@@ -350,7 +343,6 @@ function validatorForm(form, formReq, filePhp) {
                             contactForm.classList.remove('_sending');
                     }
 
-            }
 
 
     }
@@ -360,62 +352,6 @@ function validatorForm(form, formReq, filePhp) {
 
 function Reset(form) {
         form.reset();
-}
-
-// VALIDATOR
-function validator(form, req) {
-        let errorCount = 0;
-        const checkbox = document.querySelector('.form-checkstyle');
-
-        for(i=0;i<req.length;i++) {
-            const input = req[i];
-
-            formRemoveError(input);
-            
-            if(checkbox !== null)
-                checkbox.classList.remove('_error');
-
-            if(input.classList.contains('_name') || input.classList.contains('_surname')) {
-                if(nameTest(input)) {
-                        formAddError(input);
-                        errorCount++;
-                }
-
-            } else if(input.classList.contains('_email') || input.classList.contains('_login-email')){
-                if(emailTest(input)) {
-                        formAddError(input);
-                        errorCount++;
-                }
-            } else if(input.getAttribute("type") === 'checkbox' && input.checked === false) {
-                formAddError(input);
-                checkbox.classList.add('_error');
-                errorCount++;
-            } else {
-                    if(input.value === '') {
-                            formAddError(input);
-                            errorCount++;
-                    }
-            }
-        }
-
-        return errorCount;
-}
-
-
-function formAddError(input) {
-        input.classList.add('_error');
-}
-
-function formRemoveError(input) {
-        input.classList.remove('_error');
-}
-
-function nameTest(input) {
-        return !/^[аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхХцЦчЧшШщЩъЪыЫьЬэЭюЮяЯєЄїЇіІ]+$/.test(input.value);
-}
-
-function emailTest(input) {
-        return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 }
 
 
@@ -433,10 +369,6 @@ function register(formID, inputsReqClass) {
 
     async function formSend(e) {
             e.preventDefault();
-
-            let errorCount = miniValidator(inputs);
-
-            if(errorCount === 0) {
         
                 let dataForm = new FormData();
                 dataForm.set('register-mail', inputs[0].value);
@@ -458,8 +390,6 @@ function register(formID, inputsReqClass) {
                 } else {                       
                         alert('Ошибка');
                 }
-               
-            }
 
     }
 }
@@ -504,29 +434,5 @@ function countdown() {
         clearInterval(interval);
       } 
   }, 1000);
-
-}
-
-function miniValidator(inputs) {
-    let errors = 0;
-
-    for(let index = 0; index < inputs.length; index++) {
-        
-        const input = inputs[index];
-
-        formRemoveError(input);
-        if(input.classList.contains('_login-mail')) {
-            
-              if(emailTest(input)) {
-                      formAddError(input);
-                      errors++;
-              } else if (input.value === '') {
-                      formAddError(input);
-                      errors++;
-              }
-        }
-    }
-
-    return errors;
 
 }
