@@ -160,10 +160,6 @@ html{
     display: flex;
 }
 
-.header__content.active{
-    // padding-top: 300px;
-}
-
 .content__left{
     padding-top: 39px;
     padding-left: 90px;
@@ -1772,5 +1768,9 @@ textarea {
     border: 1px solid rgb(235, 86, 86);
 }
 
+.intro__text-login{
+    padding-left: 0;
+    padding-right: 5px;
+}
 
 @import "media";
