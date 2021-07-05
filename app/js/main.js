@@ -12,7 +12,10 @@ window.addEventListener('DOMContentLoaded', ()=>{
         // validatorForm('first-page', '.form-reg-mail', "../sendCode.php");
 });
 
-let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+let token = 0;
+if(document.querySelector('meta[name="csrf-token"]') !== null) {
+        token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+}
 
 $(function(){
 

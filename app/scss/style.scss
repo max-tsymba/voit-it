@@ -19,6 +19,12 @@ html{
     margin: 0 auto;
 }
 
+.fullback,
+.article-offer{
+    margin-top: -151px;
+    padding-top: 150px;
+}
+
 .container-main{
     max-width: 1168px;
     margin: 0 auto;
@@ -44,6 +50,7 @@ html{
 
 /* ----- HEADER ----- */
 .header{
+    position: relative;
     padding-top: 31px;
 }
 
