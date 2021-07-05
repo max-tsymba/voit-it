@@ -659,6 +659,18 @@ html{
         background-color: transparent;
         cursor: pointer;
         outline: none;
+        
+        img{
+            transform: rotate(90deg);
+            transition: .5s all;
+        }
+        
+    }
+
+    &-btn.up{
+        img{
+            transform: rotate(-90deg);
+        }
     }
 
     &-block{

@@ -160,21 +160,23 @@ function programmMenu() {
         let items = document.querySelectorAll('.programm__menu-item');
         let btn = document.querySelectorAll('.programm__menu-btn');
 
-        if(media.matches) items[0].classList.remove('active');
-
         for (let i=0; i<btn.length; i++) {
                 btn[i].addEventListener('click', ()=>{
                         
                         if(items[i].classList.contains('active')) {
-                                if(media.matches) items[i].classList.remove('active');
+                                if(!(media.matches)) {
+                                        items[i].classList.remove('active');
+                                }  
                         } else {
                                 let activeNode = null;
                                 try{
                                         activeNode = document.querySelector('.programm__menu .active');
+                                        activeButton = document.querySelector('.programm__menu .up');
                                 } catch(msg) {}
 
                                 if (media.matches) {
                                         items[i].classList.add('active');
+                                        btn[i].classList.add('up');
                                 } else {
                                         setTimeout(()=>{
                                                 items[i].classList.add('active');
@@ -183,6 +185,10 @@ function programmMenu() {
 
                                 if(activeNode) {
                                         activeNode.classList.remove('active');
+                                }
+
+                                if(activeButton) {
+                                        activeButton.classList.remove('up');
                                 }
                         }
                 })
