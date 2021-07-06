@@ -110,10 +110,12 @@
                 <form class="popup__login-content" style="display: block;" id="login-form" action="#" novalidate>
 
                   <div class="form__group reg__group">
-                    <input class="form-control _login-email _login-req" type="email" placeholder="Email" required>
+                    <input class="form-control _login-email _login-req" type="email" placeholder="Email" name="login-email" required>
+                    <div class="form-error">Необходимо заполнить пустое поле</div>
                   </div>
                   <div class="form__group reg__group">
-                    <input class="form-control _login-password _login-req" type="text" placeholder="Пароль" required>
+                    <input class="form-control _login-password _login-req" type="text" placeholder="Пароль" name="login-password" required>
+                    <div class="form-error">Необходимо заполнить пустое поле</div>
                   </div>
 
                   <div class="popup__login-btn">
@@ -138,11 +140,13 @@
                 <form class="popup__reg-content" id="register-form" action="#" novalidate>
                   
                   <div class="form__group reg__group">
-                    <input class="form-control _req _login-mail" type="email" name="register-mail" placeholder="Email" autocomplete="off" required>
+                    <input class="form-control _req _login-mail" type="email" name="register-email" placeholder="Email" autocomplete="off" required>
+                    <div class="form-error">Необходимо заполнить пустое поле</div>
                   </div>
 
                   <div class="form__group reg__group">
                     <input class="form-control _req _code" type="text" name="register-code" placeholder="Пароль" style="display: none;" required>
+                    <div class="form-error">Необходимо заполнить пустое поле</div>
                   </div>
 
                   <span class="js-timeout" style="display: none;">1:00</span>
@@ -1006,18 +1010,22 @@
                               <div class="form__inputs">
                                 <div class="form__group">
                                   <input class="form-control _name _req" type="text" name="name" placeholder="Имя*" required>
+                                  <div class="form-error">Необходимо заполнить пустое поле</div>
                                 </div>
   
                                 <div class="form__group">
                                   <input class="form-control _surname _req" type="text" name="surname" placeholder="Фамилия*" required>
+                                  <div class="form-error">Необходимо заполнить пустое поле</div>
                                 </div>
   
                                 <div class="form__group">
                                   <input class="form-control _email _req" type="email" name="email" placeholder="Email*" required>
+                                  <div class="form-error">Необходимо заполнить пустое поле</div>
                                 </div>
   
                                 <div class="form__group message-input">
-                                  <textarea class="form-control textarea-control" name="message" placeholder="Сообщение"></textarea>
+                                  <textarea class="form-control textarea-control" name="message" placeholder="Сообщение*"></textarea>
+                                  <div class="form-error">Необходимо заполнить пустое поле</div>
                                 </div>
                               </div>
 

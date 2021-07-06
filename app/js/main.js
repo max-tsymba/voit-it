@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
         accrodionMenu();
         programmMenu();
         modal('.overlay__popup','popup-btn', '.popup__close','.popup__login');
-        validatorForm('contact-form', '._req', "/contact/send");
+        validatorForm('contact-form', '.form-control', '.form-error', "/contact/send");
         register('register-form', '._req');
         addTimer('timer');
         registerModal('register-btn','.popup__reg', '.popup__login');
@@ -127,7 +127,6 @@ function login(formID, reqsInputs, phpFile) {
                                 method: 'POST',
                                 body: dataForm,
                                 headers: new Headers({
-                                        'Content-Type': 'application/json',
                                         'Accept': 'application/json',
                                         'X-CSRF-TOKEN': token
                                 })
@@ -325,12 +324,25 @@ function calcScroll() {
         return scrollWidth;
 }
 
+
 //FORM SEND
-function validatorForm(form, formReq, filePhp) {
+function validatorForm(form, formReq, errorLabelsClass ,filePhp) {
 
     const contactForm = document.getElementById(form);
     const contactReq = document.querySelectorAll(formReq);
+    const label = document.querySelectorAll(errorLabelsClass);
     const regRoad = document.querySelectorAll('.popup__reg-content');
+    const textarea = document.getElementsByName('message');
+
+    label.forEach(item => {
+            item.style.display = 'none';
+    })
+
+    contactReq.forEach(item => {
+            if(item.classList.contains('._error')) {
+                    item.classList.remove('._error');
+            }
+    })
 
     if(contactForm!== null) contactForm.addEventListener('submit', formSend);
 
@@ -350,7 +362,6 @@ function validatorForm(form, formReq, filePhp) {
                             method: 'POST',
                             body: formData,
                             headers: new Headers({
-                                'Content-Type': 'application/json',
                                 'Accept': 'application/json',
                                 'X-CSRF-TOKEN': token
                         })
@@ -363,8 +374,20 @@ function validatorForm(form, formReq, filePhp) {
                             contactForm.classList.add('active');
                             Reset(contactForm);
                     } else {                       
-                            alert('Ошибка');
-                            contactForm.classList.remove('_sending');
+                            let result = await response.json();
+                            
+                            for(let key in result.errors) {
+                                
+                                for(let index = 0; index < contactReq.length; index++) {
+                                        if(contactReq[index].name === key) {
+                                                contactReq[index].classList.add('._error');
+                                                label[index].textContent = result.errors[key];
+                                                label[index].style.display = 'block';
+                                        }
+                                }
+                            }
+
+
                     }
 
 
@@ -400,7 +423,6 @@ function register(formID, inputsReqClass) {
                         method: 'POST',
                         body: dataForm,
                         headers: new Headers({
-                                'Content-Type': 'application/json',
                                 'Accept': 'application/json',
                                 'X-CSRF-TOKEN': token
                         })

@@ -28,6 +28,18 @@ html{
     margin-top: -151px;
 }
 
+.form-error{
+    font-size: 12px;
+    display: inline-block;
+    color: rgb(235, 86, 86);
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    display: none;
+}
+
 .cabinet,
 .offer{
     padding-top: 150px;
@@ -1123,6 +1135,10 @@ html{
     }
 }
 
+.reg__group{
+    display: inline-block;
+}
+
 .footer__block{
     display: flex;
     flex-wrap: nowrap;
@@ -1193,7 +1209,7 @@ html{
         outline: none;
         transition: all .3s;
         min-height: 82px;
-        margin-bottom: 15px;
+        margin-bottom: 30px;
         padding: 0px 35px;
 
         &::placeholder{
@@ -1204,6 +1220,10 @@ html{
             opacity: .5;
             transition: opacity .3s ease;
         }
+    }
+    
+    &__group{
+        position: relative;
     }
 
     &-check{
