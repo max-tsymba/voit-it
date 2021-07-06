@@ -19,10 +19,18 @@ html{
     margin: 0 auto;
 }
 
-.fullback,
-.article-offer{
+.fullback{
     margin-top: -151px;
     padding-top: 65px;
+}
+
+.article-offer{
+    margin-top: -151px;
+}
+
+.cabinet,
+.offer{
+    padding-top: 150px;
 }
 
 .fullback.active,
