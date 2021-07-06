@@ -333,6 +333,13 @@ function validatorForm(form, formReq, errorLabelsClass ,filePhp) {
     const label = document.querySelectorAll(errorLabelsClass);
     const regRoad = document.querySelectorAll('.popup__reg-content');
     const textarea = document.getElementsByName('message');
+    const check_group = document.querySelector('.form__gr-check');
+
+    let checkDiv = document.createElement('div');
+    checkDiv.setAttribute('class', 'form-error checkbox-error');
+    checkDiv.textContent = 'Необходимо заполнить пустое поле';
+    check_group.children[0].append(checkDiv);
+
 
     label.forEach(item => {
             item.style.display = 'none';
@@ -380,9 +387,11 @@ function validatorForm(form, formReq, errorLabelsClass ,filePhp) {
                                 
                                 for(let index = 0; index < contactReq.length; index++) {
                                         if(contactReq[index].name === key) {
-                                                contactReq[index].classList.add('._error');
-                                                label[index].textContent = result.errors[key];
-                                                label[index].style.display = 'block';
+
+                                                        contactReq[index].classList.add('._error');
+                                                        label[index].textContent = result.errors[key];
+                                                        label[index].style.display = 'block';
+
                                         }
                                 }
                             }

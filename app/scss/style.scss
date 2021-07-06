@@ -422,10 +422,6 @@ html{
     display: block;
 }
 
-.log-out{
-    display: none;
-}
-
 
 .btn-shadow{
     position: absolute;
@@ -1246,11 +1242,12 @@ html{
     }
 
     &__gr-check{
-        max-width: 262px;
+        max-width: 300px;
         margin: 0 auto;
         text-align: left;
         padding-bottom: 87px;
         padding-top: 5px;
+        position: relative;
     }
 
     &-checkstyle{
@@ -1272,6 +1269,11 @@ html{
         transform: translate(-50%);
         bottom: -5%;
     }
+}
+
+.checkbox-error{
+    bottom: 60px;
+    text-align: center;
 }
 
 .message-input input{
