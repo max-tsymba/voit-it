@@ -38,6 +38,14 @@ $(function(){
                         $('.fullback.fix').removeClass('active');
                         $('.article-offer.fix').removeClass('active');
                 }
+
+                $('a[href*="#home"]').on('click', function() {
+                        $('.empty').removeClass('active');
+                        $('.mobile-menu.fix').removeClass('fixed');  
+                        $('.header__top.fix').removeClass('fixed');
+                        $('.fullback.fix').removeClass('active');
+                        $('.article-offer.fix').removeClass('active');     
+                })
         });
         
         $('.feedback__slider').slick({
