@@ -1,3 +1,10 @@
+
+
+window.addEventListener('load', () => {
+        
+        preLoader();
+})
+
 window.addEventListener('DOMContentLoaded', ()=>{
 
         accrodionMenu();
@@ -16,7 +23,44 @@ if(document.querySelector('meta[name="csrf-token"]') !== null) {
         token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 }
 
+function preLoader() {
+
+        const intro = document.querySelector('.intro');
+        const logoSpan = document.querySelectorAll('.intro__logo-elem');
+
+    
+        setTimeout(()=>{
+    
+            logoSpan.forEach((span, idx)=>{
+    
+                setTimeout(()=>{
+                    span.classList.add('active');
+                }, (idx+1) * 400);
+            });
+    
+            setTimeout(()=>{
+                logoSpan.forEach((span, idx)=>{
+    
+                    setTimeout(()=>{
+                        span.classList.remove('active');
+                        span.classList.add('fade');
+                    }, (idx + 1) * 50);
+    
+                });
+            }, 2000);
+    
+            setTimeout(()=>{
+                intro.style.top = '-100vh';
+            }, 2300);
+    
+        });
+    
+    
+}
+
+
 $(function(){
+
 
         const media = window.matchMedia('(max-width: 768px)');
 
