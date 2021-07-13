@@ -1,6 +1,7 @@
-
 window.onload = function() {
-        console.log('already');
+        const preloader = document.querySelector('.loader');
+        preloader.style.top = '-100%';
+        document.body.style.overflow = 'auto';
 }
 
 window.addEventListener('DOMContentLoaded', ()=>{
@@ -107,6 +108,7 @@ function mobileMenu(buttonClass, menuClass, menuLinksClass) {
 
         btn.addEventListener('click', (e) => {
                 e.preventDefault();
+                const preloader = document.querySelector('.loader');
 
                 if(isOpen) {
                         btn.classList.add('active');

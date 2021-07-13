@@ -1827,11 +1827,12 @@ textarea {
 .loader{
     height: 100vh;
     position: fixed;
-    top: 0;
+    top: 0%;
     width: 100%;
     z-index: 9999;
     text-align: center;
     background-color: #fefefe;
+    transition: 1.2s all;
 
     img{
         position: absolute;
@@ -1850,6 +1851,10 @@ textarea {
     letter-spacing: 2px;
     font-size: 20px;
     text-transform: uppercase;
+}
+
+body{
+    overflow: hidden;
 }
 
 @import "media";
