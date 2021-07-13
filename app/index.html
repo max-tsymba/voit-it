@@ -158,35 +158,43 @@
 
               </div>
 
+            </div>
 
-              <div class="popup__test" style="display: none;">
+            <div class="overlay__test">
 
-                <div class="popup__top">
-                  <img src="./img/popup.png" alt="">
-                  <h1 class="popup__title">Тест</h1>
-                  <button class="popup__close reg-btn test-close">
-                  </button>
+                <div class="popup__test" id="it-test" style="display: none;">
+
+                  <div class="popup__top">
+                    <img src="./img/popup.png" alt="">
+                    <h1 class="popup__title">Тест</h1>
+                    <button class="popup__close reg-btn test-close">
+                    </button>
+                  </div>
+    
+                  <div class="popup__question" id="test-question">
+                    Question Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, molestiae fuga optio ducimus, ratione, eaque blanditiis earum voluptates laudantium autem impedit excepturi tenetur magni nam. Minus possimus dolores aut illo?
+                  </div>
+    
+                  <div class="popup__group">
+                    <div class="form__radio-btn">  
+                      <input class="popup__group-btn answer" id="radio-1" type="radio" value="1" name="answer-radio">
+                      <label for="radio-1" style="background-image: url(./img/lines.svg);">Да</label>
+                    </div>
+                    
+                    <div class="form__radio-btn">
+                      <input class="popup__group-btn answer" id="radio-2" type="radio" value="2" name="answer-radio">
+                      <label for="radio-2" style="background-image: url(./img/lines.svg);">Нет</label>
+                    </div>
+
+                    <div class="form__radio-btn">
+                      <input class="popup__group-btn answer" id="radio-3" type="radio" value="3" name="answer-radio">
+                      <label for="radio-3" style="background-image: url(./img/lines.svg);">Может быть</label>
+                    </div>
+                  </div>
+    
+                  <button class="popup__next" id="next">Далее</button>
+    
                 </div>
-  
-                <div class="popup__question">
-                  Question Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, molestiae fuga optio ducimus, ratione, eaque blanditiis earum voluptates laudantium autem impedit excepturi tenetur magni nam. Minus possimus dolores aut illo?
-                </div>
-  
-                <div class="popup__group">
-                  <button class="popup__group-btn" type="submit" style="background-image: url(./img/lines.svg);">
-                    Да
-                  </button>
-                  <button class="popup__group-btn" type="submit" style="background-image: url(./img/lines.svg);">
-                    Нет
-                  </button>
-                  <button class="popup__group-btn" type="submit" style="background-image: url(./img/lines.svg);">
-                    Может быть
-                  </button>
-                </div>
-  
-                <button class="popup__next">Далее</button>
-  
-              </div>
             </div>
 
             <div class="content__right">
@@ -1131,13 +1139,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="js/libs.min.js"></script>
   <script>
-    
-    const endPoints = {
-      'contact-form': '/contact/send',
-      'register-form': '',
-      'login-form': '',
+    const config = {
+        'endPoints': {
+            'contact-send':     `{{ Route('contact-send') }}`,
+            'auth-register':    `{{ Route('auth-register') }}`,
+            'auth-login':       `{{ Route('auth-login') }}`,
+        },
+        'password_timeout': `{{ config('auth.password_timeout') }}`,
     }
-
   </script>
   <script src="js/main.js"></script>
 </body>

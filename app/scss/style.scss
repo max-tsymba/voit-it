@@ -1438,34 +1438,6 @@ textarea {
     color: #fff;
 }
 
-.popup__group{
-    margin-top: 15px;
-    padding-bottom: 25px;
-    padding-top: 25px;
-
-    &-btn{
-        color: #414141;
-        font-weight: 700;
-        font-size: 18px;
-        text-transform: uppercase;
-        border: none;
-        // background: linear-gradient(130.29deg, #203269 10.99%, #2275AB 100.9%);
-        background-color: #fff;
-        border-radius: 23px;
-        cursor: pointer;
-        box-shadow: 0px 15px 45px 3px rgba(0, 0, 0, 0.4);
-        width: 218px;
-        height: 62px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-
-    &-btn + &-btn{
-        margin-left: 134px;
-    }
-}
-
 .popup__next{
     position: relative;
     background: linear-gradient(60deg,#66A362 30%, #9FCD81 70%);
@@ -1480,7 +1452,8 @@ textarea {
     box-shadow: 0px 17px 36px -5px rgba(159, 205, 129, 0.95);
 }
 
-.overlay__popup{
+.overlay__popup,
+.overlay__test{
     background: rgba(0,0,0,.5);
     position: fixed;
     top: 0;
@@ -1803,6 +1776,57 @@ textarea {
 .intro__text-login{
     padding-left: 0;
     padding-right: 5px;
+}
+
+.popup__group{
+    margin-top: 15px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+
+    &-btn{
+        color: #414141;
+        font-weight: 700;
+        font-size: 18px;
+        text-transform: uppercase;
+        border: none;
+        // background: linear-gradient(130.29deg, #203269 10.99%, #2275AB 100.9%);
+        background-color: #fff;
+        border-radius: 23px;
+        cursor: pointer;
+        box-shadow: 0px 15px 45px 3px rgba(0, 0, 0, 0.4);
+        width: 218px;
+        height: 62px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    &-btn + &-btn{
+        margin-left: 134px;
+    }
+}
+
+.form__radio-btn {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.form__radio-btn input[type=radio] {
+	display: none;
+}
+
+.form__radio-btn label {
+	display: inline-block;
+	cursor: pointer;
+	padding: 0px 15px;
+	line-height: 34px;
+	border: 1px solid #999;
+	border-radius: 6px;
+	user-select: none;
+}
+
+.form__radio-btn input[type=radio]:checked + label {
+	background: #ffe0a6;
 }
 
 @import "media";
