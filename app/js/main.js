@@ -1,3 +1,8 @@
+
+window.onload = function() {
+        console.log('already');
+}
+
 window.addEventListener('DOMContentLoaded', ()=>{
 
         mobileMenu('.menu-hamburger', '.menu', '.menu__link');
