@@ -385,6 +385,7 @@
     }
 
     .popup__top{
+        height: 150px;
         img{
             width: 700px;
             top: -25px;
@@ -403,15 +404,14 @@
     }
 
     .popup__group{
-        padding-bottom: 80px;
+        padding-top: 0;
+        padding-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-        &-btn{
-            font-size: 14px;
-            width: 140px;
-        }
-
-        &-btn + &-btn{
-            margin-left: 50px;
+        .form__radio-btn + .form__radio-btn{
+            margin-top: 10px;
         }
     }
 
@@ -889,6 +889,24 @@
             width: 300px;
             padding: 20px 0px;
             bottom: -29px;
+        }
+
+        .popup__group{
+            padding-top: 0;
+            padding-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+    
+            .form__radio-btn + .form__radio-btn{
+                margin-top: 10px;
+            }
+        }
+
+        .form__radio-btn label{
+            padding: 15px 0;
+            font-size: 14px;
+            width: 220px;
         }
 }
 
