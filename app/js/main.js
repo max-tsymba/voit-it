@@ -1,7 +1,9 @@
 window.onload = function() {
         const preloader = document.querySelector('.loader');
         preloader.style.top = '-100%';
-        document.body.style.overflow = 'auto';
+        setTimeout(() => {
+                document.body.style.overflow = 'auto';
+        }, 1200);
 }
 
 window.addEventListener('DOMContentLoaded', ()=>{
