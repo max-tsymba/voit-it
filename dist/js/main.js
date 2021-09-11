@@ -14,6 +14,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
         postLoginFormRequests('login-form', '.form-control', '.form-error' , config.endPoints['auth-login']);
         postRegisterEmailRequests('register-form', '.form-control', '.form-error', config.endPoints['auth-register']);
         postRegisterFormRequests('register-form', '.form-control', '.form-error', config.endPoints['auth-login']);
+        postBuySend('.price__block-title', '.price__block-btn_book', '');
 
         accordionAboutMenu('.accordion__item');
         accordionProgrammMenu('.programm__menu-item','.programm__menu-btn', 913);
@@ -408,6 +409,44 @@ function postRegisterFormRequests(formID, inputsReqClass, errorLabelsClass, url)
                         }  
                         registerButton.disabled = false;
                         form.classList.remove('_sending');     
+                }
+        }
+}
+
+function postBuySend(courseNameSelector, btnSubmitSelector, url) {
+
+        const course = document.querySelectorAll(courseNameSelector),
+                btn = document.querySelectorAll(btnSubmitSelector);
+
+        
+        for(let index = 0; index < btn.length; index++) {
+                btn[index].addEventListener('click', send);
+
+                async function send(e) {
+                        e.preventDefault();
+                        let courseName = course[index].textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();
+                        let button = btn[index];
+                        button.disabled = true;
+
+                        let dataForm = new FormData();
+                        dataForm.set('course', courseName);
+
+                        let response = await fetch(url, {
+                                credentials: 'same-origin',
+                                method: 'POST',
+                                body: dataForm,
+                                headers: new Headers({
+                                        'Accept': 'application/json',
+                                        'X-CSRF-TOKEN': token
+                                })
+                        });
+
+                        if(response.ok) {
+                                button.disabled = true;
+                        } else {
+                                let result = await response.json();
+                                alert(result);
+                        }
                 }
         }
 }

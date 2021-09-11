@@ -1,8 +1,15 @@
 window.onload = function() {
+        const scroll = calcScroll();
+        if(document.body.clientHeight > 1000) {
+                document.body.style.marginRight = `${scroll}px`;
+        } else {
+                document.body.style.marginRight = `0px`;
+        }
         const preloader = document.querySelector('.loader');
-        preloader.style.top = '-100%';
+        if(preloader !== null) preloader.style.top = '-130%';
         setTimeout(() => {
                 document.body.style.overflow = 'auto';
+                document.body.style.marginRight = `0px`;
         }, 1200);
 }
 
@@ -14,6 +21,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
         postLoginFormRequests('login-form', '.form-control', '.form-error' , config.endPoints['auth-login']);
         postRegisterEmailRequests('register-form', '.form-control', '.form-error', config.endPoints['auth-register']);
         postRegisterFormRequests('register-form', '.form-control', '.form-error', config.endPoints['auth-login']);
+        postRecoverEmailRequests('recover-form', '.form-control', '.form-error', config.endPoints['auth-register']);
+        postRecoverFormRequests('recover-form', '.form-control', '.form-error', config.endPoints['auth-recover']);
 
         accordionAboutMenu('.accordion__item');
         accordionProgrammMenu('.programm__menu-item','.programm__menu-btn', 913);
@@ -108,31 +117,33 @@ function mobileMenu(buttonClass, menuClass, menuLinksClass) {
 
         let isOpen = true;
 
-        btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const preloader = document.querySelector('.loader');
-
-                if(isOpen) {
-                        btn.classList.add('active');
-                        menu.classList.add('active');
-                        document.querySelector('body').style.overflowY = 'hidden';
-                        isOpen = false;
-                } else {
-                        btn.classList.remove('active');
-                        menu.classList.remove('active');
-                        document.querySelector('body').style.overflowY = 'scroll';
-                        isOpen = true;
-                }
-        });
-
-        links.forEach((link) => {
-                link.addEventListener('click', () => {
-                        btn.classList.remove('active');
-                        menu.classList.remove('active');
-                        document.querySelector('body').style.overflowY = 'scroll';
-                        isOpen = true;  
+        if(btn !== null) {
+                btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const preloader = document.querySelector('.loader');
+        
+                        if(isOpen) {
+                                btn.classList.add('active');
+                                menu.classList.add('active');
+                                document.querySelector('body').style.overflowY = 'hidden';
+                                isOpen = false;
+                        } else {
+                                btn.classList.remove('active');
+                                menu.classList.remove('active');
+                                document.querySelector('body').style.overflowY = 'scroll';
+                                isOpen = true;
+                        }
                 });
-        });
+
+                links.forEach((link) => {
+                        link.addEventListener('click', () => {
+                                btn.classList.remove('active');
+                                menu.classList.remove('active');
+                                document.querySelector('body').style.overflowY = 'scroll';
+                                isOpen = true;  
+                        });
+                });
+        }
 }
 /* ------------------------------------------------------------------------------------------------------------------ */
 
@@ -223,10 +234,14 @@ function postLoginFormRequests(formID, reqsInputs, errorLabelsClass, url) {
 
         const form = document.getElementById(formID),
               inputs = document.querySelectorAll(reqsInputs),
-              label = document.querySelectorAll(errorLabelsClass),
-              submitBtn = form.children[3];
+              label = document.querySelectorAll(errorLabelsClass);
 
-        if(form !== null) form.addEventListener('submit', formSend);
+        let submitBtn = document.querySelector('#contact-submit');
+
+        if(form !== null && submitBtn !== null) {
+
+                form.addEventListener('submit', formSend);
+        } 
 
         async function formSend(e) {
                 e.preventDefault();
@@ -252,7 +267,7 @@ function postLoginFormRequests(formID, reqsInputs, errorLabelsClass, url) {
                         if(response.ok) {
 
                                 form.classList.remove("_sending");
-                                Reset(dataForm);
+                                Reset(form);
                                 submitBtn.disabled = false;
                                 location.reload();
 
@@ -345,6 +360,134 @@ function postRegisterEmailRequests(formID, inputsReqClass, errorLabelsClass ,url
         }
 }
 
+function postRecoverEmailRequests(formID, inputsReqClass, errorLabelsClass ,url) {
+
+    const form = document.getElementById(formID),
+          inputs = document.querySelectorAll(inputsReqClass),
+          btns = document.querySelectorAll('.register'),
+          sendCodeButton = btns[0],
+          registerButton = btns[1],
+          label = document.querySelectorAll(errorLabelsClass);
+
+    if(form !== null) form.addEventListener('submit', formSend);
+
+    async function formSend(e) {
+        e.preventDefault();
+        sendCodeButton.disabled = true;
+
+        clearErrors(inputs, label);
+        
+                let dataForm = new FormData();
+                dataForm.set('email', inputs[0].value);
+                form.classList.add('_sending');
+
+                let response = await fetch(url, {
+                        credentials: 'same-origin',
+                        method: 'POST',
+                        body: dataForm,
+                        headers: new Headers({
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': token
+                        })
+                });
+
+                if(response.ok) {
+
+                        form.classList.remove('_sending');
+
+                        inputs[1].style.display = 'block';
+                        sendCodeButton.disabled = false;
+                        sendCodeButton.style.display = 'none';
+                        registerButton.style.display = 'block'; 
+
+                        $('.js-timeout').show();
+                        $('.js-timeout').text(config.password_timeout);
+                        countdown();
+
+                } else {                       
+                        let result = await response.json();
+
+                        for(let error in result.errors) {
+                                
+                                if(error === 'email') {
+                                        inputs[0].classList.add('_error');
+                                        label[0].textContent = result.errors[error];
+                                        label[0].style.display = 'block';
+                                } 
+                        }
+                        sendCodeButton.disabled = false;
+                        form.classList.remove('_sending');      
+                }
+        }
+}
+
+function postRecoverFormRequests(formID, inputsReqClass, errorLabelsClass, url) {
+
+        const form = document.getElementById(formID),
+              inputs = document.querySelectorAll(inputsReqClass),
+              btns = document.querySelectorAll('.register'),
+              sendCodeButton = btns[0],
+              registerButton = btns[1],
+              label = document.querySelectorAll(errorLabelsClass);
+
+        if(form !== null) {
+                registerButton.addEventListener('click', formSend);
+        }
+
+        async function formSend(e) {
+                e.preventDefault();
+                registerButton.disabled = true;
+
+                clearErrors(inputs, label);
+
+                let dataForm = new FormData();
+                dataForm.set('email', inputs[0].value);
+                dataForm.set('password', inputs[1].value);
+                form.classList.add('_sending');
+
+                    let response = await fetch(url, {
+                        credentials: 'same-origin',
+                        method: 'POST',
+                        body: dataForm,
+                        headers: new Headers({
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': token
+                        })
+                    });
+    
+                    if(response.ok) {
+
+                        form.classList.remove('_sending');
+
+                        inputs[1].style.display = 'none';
+                        registerButton.disabled = false;
+                        sendCodeButton.style.display = 'block';
+                        registerButton.style.display = 'none'; 
+
+                        Reset(form);
+                        location.reload();
+
+                    } else {                       
+                        let result = await response.json();
+                        for(let error in result.errors) {
+                                        
+                                if(error === 'email') {
+                                        inputs[0].classList.add('_error');
+                                        label[0].textContent = result.errors[error];
+                                        label[0].style.display = 'block';
+                                } 
+                                if(error === 'password') {
+                                        inputs[1].classList.add('_error');
+                                        label[1].textContent = result.errors[error];
+                                        label[1].style.display = 'block';
+                                }
+                        }  
+                        registerButton.disabled = false;
+                        form.classList.remove('_sending');     
+                }
+        }
+}
+
 function postRegisterFormRequests(formID, inputsReqClass, errorLabelsClass, url) {
 
         const form = document.getElementById(formID),
@@ -411,6 +554,7 @@ function postRegisterFormRequests(formID, inputsReqClass, errorLabelsClass, url)
                 }
         }
 }
+
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 
@@ -447,25 +591,27 @@ function accordionAboutMenu(itemsClass) {
         const items = document.querySelectorAll(itemsClass);
         let activeNode = null;
 
-        items.forEach((item) => {
+        if(items != undefined || items !== null) {
+                items.forEach((item) => {
 
-                item.addEventListener('click', ()=>{
-
-                        if(!(item.classList.contains('active'))) {
-
-                                activeNode = null;
-                                try{
-                                        activeNode = document.querySelector('.about__accordion .active');
-                                } catch(msg) {}
+                        item.addEventListener('click', ()=>{
         
-                                item.classList.add('active');
-
-                                if(activeNode) {
-                                        activeNode.classList.remove('active');
+                                if(!(item.classList.contains('active'))) {
+        
+                                        activeNode = null;
+                                        try{
+                                                activeNode = document.querySelector('.about__accordion .active');
+                                        } catch(msg) {}
+                
+                                        item.classList.add('active');
+        
+                                        if(activeNode) {
+                                                activeNode.classList.remove('active');
+                                        }
                                 }
-                        }
+                        });
                 });
-        });
+        }
 }
 
 function accordionProgrammMenu(itemsClass, buttonsClass, mediaWidth) {
@@ -474,34 +620,37 @@ function accordionProgrammMenu(itemsClass, buttonsClass, mediaWidth) {
               btn = document.querySelectorAll(buttonsClass),
               media = window.matchMedia(`(max-width: ${mediaWidth}px)`);
 
-        for (let i=0; i<btn.length; i++) {
-                btn[i].addEventListener('click', ()=>{
-                        
-                        if(items[i].classList.contains('active')) {
-                                if(!(media.matches)) {
-                                        items[i].classList.remove('active');
-                                }  
-                        } else {
-                                let activeNode = null;
-                                try{
-                                        activeNode = document.querySelector('.programm__menu .active');
-                                        activeButton = document.querySelector('.programm__menu .up');
-                                } catch(msg) {}
-
-                                if (media.matches) {
-                                        items[i].classList.add('active');
-                                        btn[i].classList.add('up');
+        if(btn !== null) {
+                for (let i=0; i<btn.length; i++) {
+                        btn[i].addEventListener('click', ()=>{
+                                
+                                if(items[i].classList.contains('active')) {
+                                        if(!(media.matches)) {
+                                                items[i].classList.remove('active');
+                                        }  
                                 } else {
-                                        setTimeout(()=>{
+                                        let activeNode = null;
+                                        try{
+                                                activeNode = document.querySelector('.programm__menu .active');
+                                                activeButton = document.querySelector('.programm__menu .up');
+                                        } catch(msg) {}
+        
+                                        if (media.matches) {
                                                 items[i].classList.add('active');
-                                        },800);                
+                                                btn[i].classList.add('up');
+                                        } else {
+                                                setTimeout(()=>{
+                                                        items[i].classList.add('active');
+                                                },800);                
+                                        }
+        
+                                        if(activeNode) activeNode.classList.remove('active');
+                                        if(activeButton) activeButton.classList.remove('up');    
                                 }
-
-                                if(activeNode) activeNode.classList.remove('active');
-                                if(activeButton) activeButton.classList.remove('up');    
-                        }
-                })
+                        })
+                }
         }
+       
 }
 /* ------------------------------------------------------------------------------------------------------------------ */
 
@@ -517,8 +666,10 @@ function modalStartedOpener(overlayModalClass, modalBtnClass, modalClsBtnClass, 
               media = window.matchMedia(`(max-width: ${mediaWidth}px)`);
 
         const header = document.querySelector('article'),
-              styleHeader = getComputedStyle(header),
-              scroll = calcScroll();
+              scroll = calcScroll(),
+              styleHeader = null;
+
+        if(header !== null) styleHeader = getComputedStyle(header);
 
         if(modalWindow !== null && modalOpenBtn != null) {
 
@@ -539,10 +690,12 @@ function modalStartedOpener(overlayModalClass, modalBtnClass, modalClsBtnClass, 
 
                 modalCloseBtn.forEach((btnItem) => {
 
-                        btnItem.addEventListener('click', ()=>{
+                        if(!btnItem.classList.contains('test-close')) {
+                                btnItem.addEventListener('click', ()=>{
 
-                                modalRemover(modalWindow, styleHeader, media);    
-                        })
+                                        modalRemover(modalWindow, styleHeader, media);    
+                                })
+                        }
                 })
         }
 }
@@ -624,6 +777,7 @@ function addTimer(btnID) {
         if(btn !== null) {
                 btn.addEventListener('click', () => {
                         $('.timer').hide();   
+                        $('.time').show();
                         $('.js-timeout').show();
                         $('.js-timeout').text(config.password_timeout);
                         countdown();
@@ -657,6 +811,7 @@ function countdown() {
                 $('.js-timeout').html(seconds);
 
                 if (minutes == 0 && seconds == 0) {
+                        $('.time').hide();
                         $('.js-timeout').hide();
                         $('.timer').show();   
                         clearInterval(interval);

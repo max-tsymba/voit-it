@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>VOIT</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    
+  <section class="recover" style="background-image: url('./img/header-bg.png'); background-repeat: no-repeat; background-size: cover; height: 100vh;">
+    <div class="overlay__popup recover-popup">
+
+      <div class="popup__reg modal">
+
+        <div class="popup__reg-top modal-top">
+          <img class="form__rect register__rect" src="./img/login-rect.svg" alt="">
+          <h1 class="popup__reg-title">Восстановление пароля</h1> 
+        </div>
+
+        <form class="popup__reg-content" id="recover-form" action="#" novalidate>
+          
+          <div class="form__group reg__group">
+            <input class="form-control _req _login-mail" type="email" name="register-email" placeholder="Email" autocomplete="off" required>
+            <div class="form-error">Необходимо заполнить пустое поле</div>
+          </div>
+
+          <div class="form__group reg__group">
+            <input class="form-control _req _code" type="text" name="register-code" placeholder="Пароль" style="display: none;" required>
+            <div class="form-error">Необходимо заполнить пустое поле</div>
+          </div>
+
+          <span class="time">Поторная отправка: </span>
+          <span class="js-timeout" style="display: none;">1:00</span>
+          <button class="timer" type="submit" id="timer" style="display: none;">Отправить код повторно</button>
+
+          <button class="popup__reg-btn but-init reg-btn register" type="submit" value="Reset" style="display: block;">Отправить код</button>
+          <button class="popup__reg-btn but-init reg-btn register" type="submit" value="Reset" style="display: none;">Восстановить</button>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="js/libs.min.js"></script>
+  <script>
+    const config = {
+        'endPoints': {
+            'contact-send':     `{{ Route('contact-send') }}`,
+            'auth-register':    `{{ Route('auth-register') }}`,
+            'auth-login':       `{{ Route('auth-login') }}`,
+            'auth-recover':     `{{  }}`,
+        },
+        'password_timeout': `{{ config('auth.password_timeout') }}`,
+    }
+  </script>
+  <script src="js/test.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 postTestFormRequests('.overlay__test', '.form__radio-btn', '.answer', 'next', 'popup-Btn', config.endPoints['test']);
+removeTest('.overlay__test', '.test-close', '.test-error');
 
 function postTestFormRequests(modalOverlayClass, radioGroupClass, answerGroupClass, submitBtnID, modalBtnID, url) {
         
@@ -10,6 +11,11 @@ function postTestFormRequests(modalOverlayClass, radioGroupClass, answerGroupCla
 
     modalBtn.addEventListener('click', formSend.bind(null, true));
     submitBtn.addEventListener('click', formSend.bind(null, false));
+
+    let group = document.querySelector('.popup__group');
+    group.insertAdjacentHTML('beforeend', generateAnswers());
+    
+    // group.innerHTML = '';
 
     async function formSend(isFirst, event) {
             event.preventDefault();
@@ -52,4 +58,26 @@ function postTestFormRequests(modalOverlayClass, radioGroupClass, answerGroupCla
                 console.log(result);
             }
     }
+}
+
+function removeTest(modalOverlayClass, closeBtnClass, errorLabelClass) {
+
+    const modal = document.querySelector(modalOverlayClass),
+        closeBtn = document.querySelector(closeBtnClass),
+        errorLabel = document.querySelector(errorLabelClass);
+
+    closeBtn.addEventListener('click', () => {
+
+        errorLabel.style.display = 'none';
+        modal.style.display = 'none';
+    });
+}
+
+function generateAnswers() {
+    return `
+    <div class="form__radio-btn">  
+        <input class="popup__group-btn answer" id="radio-1" type="radio" value="1" name="answer-radio">
+        <label for="radio-1" style="background-image: url(./img/lines.svg);">Да</label>
+    </div>
+    `;
 }

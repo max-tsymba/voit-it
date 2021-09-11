@@ -9,11 +9,12 @@ function postTestFormRequests(modalOverlayClass, radioGroupClass, answerGroupCla
             modalBtn = document.getElementById(modalBtnID),
             modal = document.querySelector(modalOverlayClass);
 
-    modalBtn.addEventListener('click', formSend.bind(null, true));
-    submitBtn.addEventListener('click', formSend.bind(null, false));
-
-    let group = document.querySelector('.popup__group');
-    group.insertAdjacentHTML('beforeend', generateAnswers());
+    if(modalBtn !== null) {
+        modalBtn.addEventListener('click', formSend.bind(null, true));
+        submitBtn.addEventListener('click', formSend.bind(null, false));
+        let group = document.querySelector('.popup__group');
+        group.insertAdjacentHTML('beforeend', generateAnswers());
+    }
     
     // group.innerHTML = '';
 
@@ -66,11 +67,13 @@ function removeTest(modalOverlayClass, closeBtnClass, errorLabelClass) {
         closeBtn = document.querySelector(closeBtnClass),
         errorLabel = document.querySelector(errorLabelClass);
 
-    closeBtn.addEventListener('click', () => {
+    if(closeBtn !== null) {
+        closeBtn.addEventListener('click', () => {
 
-        errorLabel.style.display = 'none';
-        modal.style.display = 'none';
-    });
+            errorLabel.style.display = 'none';
+            modal.style.display = 'none';
+        });
+    }
 }
 
 function generateAnswers() {
