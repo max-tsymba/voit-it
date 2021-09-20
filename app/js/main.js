@@ -21,14 +21,14 @@ window.addEventListener('DOMContentLoaded', ()=>{
         postLoginFormRequests('login-form', '.form-control', '.form-error' , config.endPoints['auth-login']);
         postRegisterEmailRequests('register-form', '.form-control', '.form-error', config.endPoints['auth-register']);
         postRegisterFormRequests('register-form', '.form-control', '.form-error', config.endPoints['auth-login']);
-        postRecoverEmailRequests('recover-form', '.form-control', '.form-error', config.endPoints['auth-register']);
-        postRecoverFormRequests('recover-form', '.form-control', '.form-error', config.endPoints['auth-recover']);
+        postResetEmailRequests('reset-form', '.form-control', '.form-error', config.endPoints['auth-reset'])
 
         accordionAboutMenu('.accordion__item');
         accordionProgrammMenu('.programm__menu-item','.programm__menu-btn', 913);
 
         modalStartedOpener('.overlay__popup','popup-btn', '.popup__close','.popup__login', 769);
         modalRegisterOpener('register-btn','.popup__reg', '.popup__login');
+        modalRegisterOpener('reset-btn','.popup__reset', '.popup__login');
 
         addTimer('timer');
 
@@ -200,7 +200,7 @@ function postContactFormRequests(formID, formReq, errorLabelsClass ,url) {
                         contactForm.classList.add('active');
                         Reset(contactForm);
                         submitBtn.disabled = false;
-                        location.reload();
+                        // location.reload();
 
                 } else {                       
                         let result = await response.json();
@@ -269,7 +269,7 @@ function postLoginFormRequests(formID, reqsInputs, errorLabelsClass, url) {
                                 form.classList.remove("_sending");
                                 Reset(form);
                                 submitBtn.disabled = false;
-                                location.reload();
+                                // location.reload();
 
                         } else {                       
                                 let result = await response.json();
@@ -360,13 +360,12 @@ function postRegisterEmailRequests(formID, inputsReqClass, errorLabelsClass ,url
         }
 }
 
-function postRecoverEmailRequests(formID, inputsReqClass, errorLabelsClass ,url) {
+function postResetEmailRequests(formID, inputsReqClass, errorLabelsClass ,url) {
 
     const form = document.getElementById(formID),
           inputs = document.querySelectorAll(inputsReqClass),
-          btns = document.querySelectorAll('.register'),
+          btns = document.querySelectorAll('.reset'),
           sendCodeButton = btns[0],
-          registerButton = btns[1],
           label = document.querySelectorAll(errorLabelsClass);
 
     if(form !== null) form.addEventListener('submit', formSend);
@@ -378,10 +377,10 @@ function postRecoverEmailRequests(formID, inputsReqClass, errorLabelsClass ,url)
         clearErrors(inputs, label);
         
                 let dataForm = new FormData();
-                dataForm.set('email', inputs[0].value);
+                dataForm.set('email', inputs[4].value);
                 form.classList.add('_sending');
 
-                let response = await fetch(url, {
+                let response = await fetch('url', {
                         credentials: 'same-origin',
                         method: 'POST',
                         body: dataForm,
@@ -395,14 +394,12 @@ function postRecoverEmailRequests(formID, inputsReqClass, errorLabelsClass ,url)
 
                         form.classList.remove('_sending');
 
-                        inputs[1].style.display = 'block';
                         sendCodeButton.disabled = false;
-                        sendCodeButton.style.display = 'none';
-                        registerButton.style.display = 'block'; 
 
                         $('.js-timeout').show();
                         $('.js-timeout').text(config.password_timeout);
                         countdown();
+                        location.reload();
 
                 } else {                       
                         let result = await response.json();
@@ -410,80 +407,13 @@ function postRecoverEmailRequests(formID, inputsReqClass, errorLabelsClass ,url)
                         for(let error in result.errors) {
                                 
                                 if(error === 'email') {
-                                        inputs[0].classList.add('_error');
-                                        label[0].textContent = result.errors[error];
-                                        label[0].style.display = 'block';
+                                        inputs[4].classList.add('_error');
+                                        label[4].textContent = result.errors[error];
+                                        label[4].style.display = 'block';
                                 } 
                         }
                         sendCodeButton.disabled = false;
                         form.classList.remove('_sending');      
-                }
-        }
-}
-
-function postRecoverFormRequests(formID, inputsReqClass, errorLabelsClass, url) {
-
-        const form = document.getElementById(formID),
-              inputs = document.querySelectorAll(inputsReqClass),
-              btns = document.querySelectorAll('.register'),
-              sendCodeButton = btns[0],
-              registerButton = btns[1],
-              label = document.querySelectorAll(errorLabelsClass);
-
-        if(form !== null) {
-                registerButton.addEventListener('click', formSend);
-        }
-
-        async function formSend(e) {
-                e.preventDefault();
-                registerButton.disabled = true;
-
-                clearErrors(inputs, label);
-
-                let dataForm = new FormData();
-                dataForm.set('email', inputs[0].value);
-                dataForm.set('password', inputs[1].value);
-                form.classList.add('_sending');
-
-                    let response = await fetch(url, {
-                        credentials: 'same-origin',
-                        method: 'POST',
-                        body: dataForm,
-                        headers: new Headers({
-                                'Accept': 'application/json',
-                                'X-CSRF-TOKEN': token
-                        })
-                    });
-    
-                    if(response.ok) {
-
-                        form.classList.remove('_sending');
-
-                        inputs[1].style.display = 'none';
-                        registerButton.disabled = false;
-                        sendCodeButton.style.display = 'block';
-                        registerButton.style.display = 'none'; 
-
-                        Reset(form);
-                        location.reload();
-
-                    } else {                       
-                        let result = await response.json();
-                        for(let error in result.errors) {
-                                        
-                                if(error === 'email') {
-                                        inputs[0].classList.add('_error');
-                                        label[0].textContent = result.errors[error];
-                                        label[0].style.display = 'block';
-                                } 
-                                if(error === 'password') {
-                                        inputs[1].classList.add('_error');
-                                        label[1].textContent = result.errors[error];
-                                        label[1].style.display = 'block';
-                                }
-                        }  
-                        registerButton.disabled = false;
-                        form.classList.remove('_sending');     
                 }
         }
 }
@@ -532,7 +462,7 @@ function postRegisterFormRequests(formID, inputsReqClass, errorLabelsClass, url)
                         registerButton.style.display = 'none'; 
 
                         Reset(form);
-                        location.reload();
+                        // location.reload();
 
                     } else {                       
                         let result = await response.json();
@@ -666,8 +596,8 @@ function modalStartedOpener(overlayModalClass, modalBtnClass, modalClsBtnClass, 
               media = window.matchMedia(`(max-width: ${mediaWidth}px)`);
 
         const header = document.querySelector('article'),
-              scroll = calcScroll(),
-              styleHeader = null;
+              scroll = calcScroll();
+        let tyleHeader = null;
 
         if(header !== null) styleHeader = getComputedStyle(header);
 
@@ -724,7 +654,9 @@ function modalRemover(overlayModal, styleCalc, mediaWidth) {
               labels = document.querySelectorAll('.form-error'),
               modalLogin = modalWindow.children[0].children[1],
               modalRegister = modalWindow.children[1].children[1],
+              modalReset = modalWindow.children[2].children[1],
               modalRegisterGroup = document.querySelector('.popup__reg'),
+              modalResetGroup = document.querySelector('.popup__reset'),
               codeInput = document.querySelector('._code'),
               registerSendButtons = document.querySelectorAll('.register'),
               timer = document.getElementById('timer');
@@ -732,9 +664,11 @@ function modalRemover(overlayModal, styleCalc, mediaWidth) {
               clearErrors(inputs, labels);
               Reset(modalLogin);
               Reset(modalRegister);
+              Reset(modalReset);
 
               modalWindow.classList.remove('active');
               modalRegisterGroup.style.display = 'none';
+              modalResetGroup.style.display = 'none';
               codeInput.style.display = 'none';
               registerSendButtons[0].style.display = 'block';
               registerSendButtons[1].style.display = 'none';

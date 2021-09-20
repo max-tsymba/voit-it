@@ -128,7 +128,7 @@
                   </div>
 
                   <div class="popup__login-btn">
-                    <a class="login-btn reset-btn" href="recover.html" id="reset-btn">Забыли пароль?</a>
+                    <button class="login-btn reset-btn" id="reset-btn" type="button">Забыли пароль?</button>
                   </div>
 
                   <button class="popup__reg-btn but-init log-btn" type="submit" value="Reset">Авторизоваться</button>
@@ -164,6 +164,31 @@
 
                   <button class="popup__reg-btn but-init reg-btn register" type="submit" value="Reset" style="display: block;">Отправить код</button>
                   <button class="popup__reg-btn but-init reg-btn register" type="submit" value="Reset" style="display: none;">Зарегистрироваться</button>
+                </form>
+
+              </div>
+
+              <div class="popup__reset modal" style="display: none; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+
+                <div class="popup__reg-top modal-top">
+                  <img class="form__rect register__rect" src="./img/login-rect.svg" alt="">
+                  <h1 class="popup__reg-title">Регистрация</h1>
+                  <button class="popup__close" value="Reset">
+                  </button>
+                </div>
+
+                <form class="popup__reg-content" id="reset-form" action="#" novalidate>
+                  
+                  <div class="form__group reg__group">
+                    <input class="form-control _req _login-mail" type="email" name="register-email" placeholder="Email" autocomplete="off" required>
+                    <div class="form-error">Необходимо заполнить пустое поле</div>
+                  </div>
+
+                  <span class="time">Поторная отправка: </span>
+                  <span class="js-timeout" style="display: none;">1:00</span>
+                  <button class="timer" type="submit" id="timer" style="display: none;">Отправить код повторно</button>
+
+                  <button class="popup__reg-btn but-init reg-btn reset" type="submit" value="Reset" style="display: block;">Отправить код</button>
                 </form>
 
               </div>
